@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+.login-screen,
+.home-screen,
+.profile-screen {
+  text-align: center;
+}

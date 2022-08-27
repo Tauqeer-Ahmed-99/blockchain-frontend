@@ -1,5 +1,9 @@
 .dashboard {
-  background: var(--background);
+  background: linear-gradient(to right, var(--white), var(--background));
+
+  grid-area: dashboard;
+
+  border-radius: 1rem;
 }
 
 .dashboard-header {
@@ -157,8 +161,12 @@
 }
 
 .dashboard-chart {
-  height: calc(100vh - 29.15rem);
+  height: calc(100vh - 31.15rem);
   width: 95%;
 
   margin: auto;
+
+  background: var(--white);
+
+  border-radius: 1rem;
 }

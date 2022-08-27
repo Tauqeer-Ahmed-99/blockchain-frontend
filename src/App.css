@@ -16,10 +16,15 @@
   --success: #28a745;
   --danger: #dc3545;
 
-  --background: #f6f7fc;
+  --background: #f2f5ff;
+  --background-end: #fbfcff;
+  --homescreen-bg: #f2f5ff;
 
   --heading-text: #000;
   --subheading-text: #b7b7b7;
+  --sidebar-inactive-text: #b7cfff;
+  --sidebar-inactive-svg: invert(76%) sepia(12%) saturate(1148%)
+    hue-rotate(189deg) brightness(104%) contrast(101%);
 
   --button-hover: #1697ce;
   --arrow-button-hover: #59ccfb;

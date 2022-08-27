@@ -7,7 +7,7 @@ import { carouselItems } from "./mockData";
 
 const Dashboard = () => {
   return (
-    <section className="dashboard">
+    <div className="dashboard">
       <header className="dashboard-header">
         <div>
           <div className="dashboard-user-name">Tauqeer Khan</div>
@@ -55,7 +55,7 @@ const Dashboard = () => {
           <Chart />
         </div>
       </main>
-    </section>
+    </div>
   );
 };
 

@@ -1,9 +1,39 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
 }
 
-.login-screen,
-.home-screen,
-.profile-screen {
-  text-align: center;
+:root {
+  --white: #fff;
+  --blue: #4162ff;
+  --sky-blue: #22bdff;
+  --success: #28a745;
+  --danger: #dc3545;
+
+  --background: #f6f7fc;
+
+  --heading-text: #000;
+  --subheading-text: #b7b7b7;
+
+  --button-hover: #1697ce;
+  --arrow-button-hover: #59ccfb;
+  --arrow-button-font-color: #a3acc9;
+
+  --input-focus-border: #3fbcfc;
+
+  --shadow: #b7b7b7;
+
+  --success-svg: invert(35%) sepia(59%) saturate(3904%) hue-rotate(222deg)
+    brightness(98%) contrast(107%);
+  --danger-svg: invert(59%) sepia(43%) saturate(1558%) hue-rotate(166deg)
+    brightness(100%) contrast(102%);
+
+  --chart-line: #4a6aff;
+  --chart-area: #c3edff;
 }

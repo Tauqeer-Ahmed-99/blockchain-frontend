@@ -1,0 +1,234 @@
+.profile {
+  grid-area: profileInfo;
+
+  background: var(--white);
+
+  border-radius: 0 1rem 1rem 0;
+}
+
+.profile-header {
+  margin: auto;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 95%;
+}
+
+.profile-header img {
+  height: 1.5rem;
+}
+
+.profile-header .avatar {
+  height: 2rem;
+
+  padding-right: 1rem;
+}
+
+.user-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.user {
+  display: flex;
+}
+
+.user span:nth-child(1) {
+  font-weight: 600;
+}
+
+.user span:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+
+.user span:nth-child(2) .arrow {
+  height: 0.8rem;
+
+  padding-left: 0.25rem;
+
+  filter: var(--notification);
+}
+
+.notification {
+  filter: var(--notification);
+
+  cursor: pointer;
+}
+
+.balance-card {
+  width: 95%;
+
+  margin: auto;
+  padding: 1rem;
+}
+
+.card {
+  margin-top: 1rem;
+  padding: 1.25rem;
+
+  height: 10rem;
+
+  background: var(--card);
+
+  border-radius: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0px 20px 0px -15px var(--card-shadow);
+}
+
+.text {
+  font-size: small;
+
+  color: var(--white);
+}
+
+.count {
+  color: var(--white);
+
+  font-weight: 600;
+}
+
+.profit .count {
+  font-size: medium;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profit .count span {
+  font-size: small;
+  font-weight: 400;
+
+  padding: 0.15rem 0.5rem;
+
+  background: #4ecaff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 2rem;
+}
+
+.profit .count span img {
+  height: 1rem;
+
+  filter: var(--white-svg);
+}
+
+.actions {
+  margin: auto;
+  padding: 1rem;
+
+  width: 95%;
+}
+
+.actions .mine {
+  width: 100%;
+}
+
+.actions .transactions {
+  width: 100%;
+
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions .transactions button {
+  width: 48%;
+
+  padding: 1rem;
+}
+
+.actions .mine button {
+  width: 100%;
+
+  padding: 1rem;
+}
+
+.actions button {
+  border: none;
+  border-radius: 1rem;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: medium;
+  font-weight: 500;
+  color: var(--white);
+
+  background: var(--card);
+}
+
+.actions button:hover {
+  background: var(--button-hover);
+}
+
+.actions button img {
+  height: 2rem;
+
+  margin-right: 1rem;
+  filter: var(--white-svg);
+}
+
+.actions .transactions button:nth-child(1) {
+  background: var(--blue);
+}
+
+.actions .transactions button:nth-child(1):hover {
+  background: var(--dark-button-hover);
+}
+
+.recent-transactions {
+  width: 95%;
+
+  margin: auto;
+  padding: 1rem;
+}
+.recent-transactions .txns {
+  width: 95%;
+  height: calc(100vh - 35.5rem);
+
+  overflow: scroll;
+}
+
+.recent-transactions .txns::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.recent-transactions .txns {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.recent-transactions .txns .show-more {
+  color: var(--card);
+
+  cursor: pointer;
+
+  font-size: x-small;
+  font-weight: 400;
+
+  text-align: end;
+}
+
+.recent-transactions .txns .show-more:hover {
+  text-decoration: underline;
+}

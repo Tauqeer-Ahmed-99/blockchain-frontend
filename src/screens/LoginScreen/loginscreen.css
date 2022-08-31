@@ -1,0 +1,134 @@
+.login-screen {
+  margin: auto;
+
+  width: 30rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.cryptowall-logo {
+  margin: auto;
+  padding: 1rem;
+
+  width: 95%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cryptowall-logo img {
+  height: 5rem;
+
+  margin-right: 02rem;
+}
+
+.cryptowall-logo div {
+  font-size: xx-large;
+  font-weight: 800;
+}
+
+.inputs {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.username-field,
+.password-field {
+  margin: 1rem 0;
+  padding: 1rem;
+  padding-left: 4rem;
+
+  height: 3rem;
+  width: 90%;
+
+  border: none;
+  border-radius: 1rem;
+
+  background: url("../../assets/icons/user-outlined.svg") no-repeat scroll 1rem;
+  background-size: 1.5rem;
+  background-color: var(--white);
+
+  box-shadow: 0 2px 15px -8px var(--shadow);
+}
+
+.password-field {
+  background: url("../../assets/icons/password-outlined.svg") no-repeat scroll
+    1rem;
+  background-size: 1.5rem;
+  background-color: var(--white);
+}
+
+.username-field:focus,
+.password-field:focus {
+  outline: none !important;
+  border: 1px solid var(--input-focus-border);
+}
+
+.login-signup {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.login-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.action {
+  width: 90%;
+}
+
+.action button {
+  margin: auto;
+
+  width: 70%;
+
+  padding: 0.5rem;
+
+  border: none;
+  border-radius: 1rem;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: medium;
+  font-weight: 500;
+  color: var(--white);
+
+  background: var(--card);
+}
+
+.action button:hover {
+  background: var(--button-hover);
+}
+
+.question {
+  margin-top: 0.5rem;
+
+  cursor: pointer;
+
+  font-size: smaller;
+
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+}
+
+.question:hover {
+  text-decoration: underline;
+}

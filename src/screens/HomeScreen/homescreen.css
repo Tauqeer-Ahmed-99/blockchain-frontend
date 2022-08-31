@@ -5,5 +5,5 @@
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: "sidebar sidebar dashboard dashboard dashboard dashboard dashboard dashboard dashboard";
+  grid-template-areas: "sidebar sidebar dashboard dashboard dashboard dashboard dashboard dashboard dashboard profileInfo profileInfo profileInfo";
 }

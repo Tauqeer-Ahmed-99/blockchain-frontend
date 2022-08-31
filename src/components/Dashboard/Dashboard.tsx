@@ -28,7 +28,6 @@ const Dashboard = () => {
             <div>View your detailed transaction here</div>
             <button>Detail Transaction</button>
           </section>
-          <section></section>
         </section>
         <section className="dashboard-portfolio">
           <div className="dashboard-portfolio-heading">

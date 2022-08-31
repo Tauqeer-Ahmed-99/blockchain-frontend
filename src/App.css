@@ -26,7 +26,11 @@
   --sidebar-inactive-svg: invert(76%) sepia(12%) saturate(1148%)
     hue-rotate(189deg) brightness(104%) contrast(101%);
 
+  --notification: invert(63%) sepia(93%) saturate(2%) hue-rotate(59deg)
+    brightness(97%) contrast(97%);
+
   --button-hover: #1697ce;
+  --dark-button-hover: #3147b5;
   --arrow-button-hover: #59ccfb;
   --arrow-button-font-color: #a3acc9;
 
@@ -38,7 +42,12 @@
     brightness(98%) contrast(107%);
   --danger-svg: invert(59%) sepia(43%) saturate(1558%) hue-rotate(166deg)
     brightness(100%) contrast(102%);
+  --white-svg: invert(100%) sepia(99%) saturate(2%) hue-rotate(14deg)
+    brightness(108%) contrast(100%);
 
   --chart-line: #4a6aff;
   --chart-area: #c3edff;
+
+  --card: #22bdff;
+  --card-shadow: #d4ecff;
 }

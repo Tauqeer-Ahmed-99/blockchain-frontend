@@ -10,7 +10,7 @@ const LoginScreen = () => {
 
   const navigate = useNavigate();
 
-  const birtDateRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const birthDateRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   const handleClick = () => {
     if (!isSigningUp) {
@@ -48,10 +48,10 @@ const LoginScreen = () => {
               <input
                 className="birth-date-field"
                 type="text"
-                ref={birtDateRef}
+                ref={birthDateRef}
                 placeholder="Date of birth"
-                onFocus={() => (birtDateRef.current.type = "date")}
-                onBlur={() => (birtDateRef.current.type = "text")}
+                onFocus={() => (birthDateRef.current.type = "date")}
+                onBlur={() => (birthDateRef.current.type = "text")}
               />
             </>
           ) : (

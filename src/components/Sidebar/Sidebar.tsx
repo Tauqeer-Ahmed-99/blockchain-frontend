@@ -20,6 +20,7 @@ const Sidebar = () => {
         <ul>
           {navigations.map((nav) => (
             <li
+              key={nav.route}
               className={`nav-item-${
                 pathname === nav.route ? "active" : "inactive"
               }`}

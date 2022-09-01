@@ -40,6 +40,7 @@ const Dashboard = () => {
           <div className="dashboard-portfolio-carousel">
             {carouselItems.map((carouselItem) => (
               <CarouselItem
+                key={carouselItem.name}
                 icon={carouselItem.icon}
                 name={carouselItem.name}
                 shortName={carouselItem.shortName}

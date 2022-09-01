@@ -9,37 +9,31 @@ export const navigations = [
   {
     item: "Dashboard",
     iconPath: DashboardIcon,
-    isActive: true,
     route: "/dashboard",
   },
   {
     item: "Exchange",
     iconPath: ExchangeIcon,
-    isActive: false,
     route: "/exchange",
   },
   {
     item: "Wallet",
     iconPath: WalletIcon,
-    isActive: false,
     route: "/wallet",
   },
   {
     item: "Chart",
     iconPath: ChartIcon,
-    isActive: false,
     route: "/charts",
   },
   {
     item: "Profile",
     iconPath: ProfileIcon,
-    isActive: false,
     route: "/profile",
   },
   {
     item: "Settings",
     iconPath: SettingsIcon,
-    isActive: false,
     route: "/settings",
   },
 ];

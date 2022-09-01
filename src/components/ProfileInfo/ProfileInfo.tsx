@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import RecentTransactionTile from "../RecentTransactionTile/RecentTransactionTile";
 import { mockRecentTxns } from "./mockRecentTxns";
@@ -11,8 +11,19 @@ import SendIcon from "../../assets/icons/arrow-up-action.svg";
 import ReceiveIcon from "../../assets/icons/arrow-down-action.svg";
 
 import "../ProfileInfo/profileinfo.css";
+import { useNavigate } from "react-router-dom";
 
 const ProfileInfo = () => {
+  const [isProfileListVisible, setIsProfileListVisible] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSignout = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    sessionStorage.removeItem("accessToken");
+    navigate("/login");
+  };
+
   return (
     <div className="profile">
       <div className="profile-header">
@@ -21,14 +32,31 @@ const ProfileInfo = () => {
           alt="Notification Icon"
           className="notification"
         />
-        <div className="user-avatar">
+        <div
+          className="user-avatar"
+          onClick={() => setIsProfileListVisible((prevState) => !prevState)}
+        >
           <img src={AvatarMale} alt="Avatar" className="avatar" />
 
           <div className="user">
             <span>Tauqeer Khan </span>
             <span>
-              <img src={ArrowDown} alt="Arrow" className="arrow" />
+              <img
+                src={!isProfileListVisible ? ArrowDown : ArrowUp}
+                alt="Arrow"
+                className="arrow"
+              />
             </span>
+          </div>
+          <div
+            className={`signout-parent ${
+              !isProfileListVisible ? "hidden" : ""
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="signout" onClick={handleSignout}>
+              Sign out
+            </div>
           </div>
         </div>
       </div>
@@ -73,7 +101,7 @@ const ProfileInfo = () => {
         <h3>Recent Transactions</h3>
         <div className="txns">
           {mockRecentTxns.map((txn) => (
-            <RecentTransactionTile {...txn} />
+            <RecentTransactionTile key={txn.id} {...txn} />
           ))}
           <div className="show-more">Show more</div>
         </div>

@@ -2,15 +2,16 @@ import React from "react";
 import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
-import "./profilescreen.css";
+import "./settings.css";
 
-const ProfileScreen = () => {
+const Settings = () => {
   return (
-    <div className="profile-screen">
+    <div className="settings-screen">
       <Sidebar />
+      <div className="settings">Settings</div>
       <ProfileInfo />
     </div>
   );
 };
 
-export default ProfileScreen;
+export default Settings;

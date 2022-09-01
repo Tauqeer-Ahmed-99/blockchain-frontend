@@ -1,0 +1,41 @@
+.no-page-found {
+  height: 100vh;
+  width: 100vw;
+
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  margin: auto;
+
+  width: 80%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-page-found-text {
+  margin: 1rem;
+}
+
+.no-page-found-text span {
+  color: #777;
+}
+
+.no-page-found-robot {
+  margin: 1rem;
+}
+
+.crypto-logo {
+  margin: 1rem auto;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.crypto-logo img {
+  margin-right: 1rem;
+}

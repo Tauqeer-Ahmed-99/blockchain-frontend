@@ -1,11 +1,15 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import CryptoLogo from "../../assets/icons/cryptowall-logo.svg";
 import "./sidebar.css";
 import { navigations } from "./navData";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const { pathname } = useLocation();
+
   return (
     <div className="sidebar">
       <div className="sidebar-logo">
@@ -16,8 +20,12 @@ const Sidebar = () => {
         <ul>
           {navigations.map((nav) => (
             <li
-              className={`nav-item-${nav.isActive ? "active" : "inactive"}`}
-              onClick={nav.onClick}
+              className={`nav-item-${
+                pathname === nav.route ? "active" : "inactive"
+              }`}
+              onClick={() => {
+                navigate(nav.route);
+              }}
             >
               <span className="nav-item-icon">
                 {<img src={nav.iconPath} alt={nav.item} />}

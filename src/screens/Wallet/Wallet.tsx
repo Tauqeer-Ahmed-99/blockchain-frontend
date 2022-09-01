@@ -2,15 +2,16 @@ import React from "react";
 import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
-import "./profilescreen.css";
+import "./wallet.css";
 
-const ProfileScreen = () => {
+const Wallet = () => {
   return (
-    <div className="profile-screen">
+    <div className="wallet-screen">
       <Sidebar />
+      <div className="wallet">Wallet</div>
       <ProfileInfo />
     </div>
   );
 };
 
-export default ProfileScreen;
+export default Wallet;

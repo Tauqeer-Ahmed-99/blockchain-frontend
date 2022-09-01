@@ -1,0 +1,13 @@
+.charts-screen {
+  padding: 1rem;
+
+  background: var(--homescreen-bg);
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas: "sidebar sidebar charts charts charts charts charts charts charts profileInfo profileInfo profileInfo";
+}
+
+.charts {
+  grid-area: charts;
+}

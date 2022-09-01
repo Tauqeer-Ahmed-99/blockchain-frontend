@@ -2,15 +2,16 @@ import React from "react";
 import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
-import "./profilescreen.css";
+import "./charts.css";
 
-const ProfileScreen = () => {
+const Charts = () => {
   return (
-    <div className="profile-screen">
+    <div className="charts-screen">
       <Sidebar />
+      <div className="charts">Charts</div>
       <ProfileInfo />
     </div>
   );
 };
 
-export default ProfileScreen;
+export default Charts;

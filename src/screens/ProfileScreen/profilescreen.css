@@ -1,0 +1,13 @@
+.profile-screen {
+  padding: 1rem;
+
+  background: var(--homescreen-bg);
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas: "sidebar sidebar profileInfo profileInfo profileInfo profileInfo profileInfo profileInfo profileInfo";
+}
+
+.profile-block {
+  grid-area: profile;
+}

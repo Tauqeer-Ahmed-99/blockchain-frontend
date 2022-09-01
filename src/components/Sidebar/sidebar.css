@@ -57,6 +57,22 @@ ul {
   background: var(--blue);
 
   color: var(--white);
+
+  position: relative;
+}
+
+ul .nav-item-active::before {
+  position: absolute;
+  left: -1rem;
+
+  content: "";
+
+  height: 2.15rem;
+  width: 0.4rem;
+
+  border-radius: 0 1rem 1rem 0;
+
+  background: var(--blue);
 }
 
 .nav-item-inactive {

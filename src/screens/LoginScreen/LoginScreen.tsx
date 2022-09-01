@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import CryptoLogo from "../../assets/icons/cryptowall-logo.svg";
@@ -9,6 +9,8 @@ const LoginScreen = () => {
   const [isSigningUp, setIsSigningUp] = useState(false);
 
   const navigate = useNavigate();
+
+  const birtDateRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   const handleClick = () => {
     if (!isSigningUp) {
@@ -37,11 +39,21 @@ const LoginScreen = () => {
             placeholder="Password"
           />
           {isSigningUp ? (
-            <input
-              className="password-field"
-              type="password"
-              placeholder="Confirm password"
-            />
+            <>
+              <input
+                className="password-field"
+                type="password"
+                placeholder="Confirm password"
+              />
+              <input
+                className="birth-date-field"
+                type="text"
+                ref={birtDateRef}
+                placeholder="Date of birth"
+                onFocus={() => (birtDateRef.current.type = "date")}
+                onBlur={() => (birtDateRef.current.type = "text")}
+              />
+            </>
           ) : (
             <></>
           )}

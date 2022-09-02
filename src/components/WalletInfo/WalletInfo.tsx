@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import RecentTransactionTile from "../RecentTransactionTile/RecentTransactionTile";
-import { mockRecentTxns } from "./mockRecentTxns";
+import { mockRecentTxns } from "../../assets/mock/mockData";
 import NotificationIcon from "../../assets/icons/notification-icon.svg";
 import AvatarMale from "../../assets/icons/avatar-male.svg";
 import ArrowUp from "../../assets/icons/arrow-up-keyboard.svg";

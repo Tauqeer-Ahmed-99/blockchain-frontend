@@ -5,9 +5,5 @@
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: "sidebar sidebar charts charts charts charts charts charts charts walletInfo walletInfo walletInfo";
-}
-
-.charts {
-  grid-area: charts;
+  grid-template-areas: "sidebar sidebar cahrtsgroup cahrtsgroup cahrtsgroup cahrtsgroup cahrtsgroup cahrtsgroup cahrtsgroup walletInfo walletInfo walletInfo";
 }

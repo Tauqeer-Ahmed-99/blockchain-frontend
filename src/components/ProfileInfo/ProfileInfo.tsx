@@ -13,7 +13,11 @@ import ReceiveIcon from "../../assets/icons/arrow-down-action.svg";
 import "../ProfileInfo/profileinfo.css";
 import { useNavigate } from "react-router-dom";
 
-const ProfileInfo = () => {
+type ProfileInfoProps = {
+  onProfilePage?: boolean;
+};
+
+const ProfileInfo = ({ onProfilePage = false }: ProfileInfoProps) => {
   const [isProfileListVisible, setIsProfileListVisible] = useState(false);
 
   const navigate = useNavigate();
@@ -25,7 +29,7 @@ const ProfileInfo = () => {
   };
 
   return (
-    <div className="profile">
+    <div className={`profile${onProfilePage ? "-on-profile-page" : ""}`}>
       <div className="profile-header">
         <img
           src={NotificationIcon}

@@ -6,6 +6,14 @@
   border-radius: 0 1rem 1rem 0;
 }
 
+.profile-on-profile-page {
+  grid-area: profileInfo;
+
+  background: linear-gradient(to right, var(--white), var(--background));
+
+  border-radius: 1rem 0 0 1rem;
+}
+
 .profile-header {
   margin: auto;
   padding: 1rem;

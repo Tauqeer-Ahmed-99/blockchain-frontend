@@ -1,20 +1,20 @@
-.profile {
-  grid-area: profileInfo;
+.wallet {
+  grid-area: walletInfo;
 
   background: var(--white);
 
   border-radius: 0 1rem 1rem 0;
 }
 
-.profile-on-profile-page {
-  grid-area: profileInfo;
+.wallet-on-wallet-page {
+  grid-area: walletInfo;
 
   background: linear-gradient(to right, var(--white), var(--background));
 
   border-radius: 1rem 0 0 1rem;
 }
 
-.profile-header {
+.wallet-header {
   margin: auto;
   padding: 1rem;
 
@@ -25,11 +25,11 @@
   width: 95%;
 }
 
-.profile-header img {
+.wallet-header img {
   height: 1.5rem;
 }
 
-.profile-header .avatar {
+.wallet-header .avatar {
   height: 2rem;
 
   padding-right: 1rem;

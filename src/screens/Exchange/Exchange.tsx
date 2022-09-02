@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
+import WalletInfo from "../../components/WalletInfo/WalletInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
 import "./exchange.css";
@@ -9,7 +9,7 @@ const Exchange = () => {
     <div className="exchange-screen">
       <Sidebar />
       <div className="exchange">Exchange</div>
-      <ProfileInfo />
+      <WalletInfo />
     </div>
   );
 };

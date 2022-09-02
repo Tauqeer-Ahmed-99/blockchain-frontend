@@ -5,7 +5,7 @@
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: "sidebar sidebar settings settings settings settings settings settings settings profileInfo profileInfo profileInfo";
+  grid-template-areas: "sidebar sidebar settings settings settings settings settings settings settings walletInfo walletInfo walletInfo";
 }
 
 .settings {

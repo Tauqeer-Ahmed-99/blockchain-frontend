@@ -1,0 +1,13 @@
+.blockchain-screen {
+  padding: 1rem;
+
+  background: var(--homescreen-bg);
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas: "sidebar sidebar blockchain blockchain blockchain blockchain blockchain blockchain blockchain walletInfo walletInfo walletInfo";
+}
+
+.blockchain-component {
+  grid-area: blockchain;
+}

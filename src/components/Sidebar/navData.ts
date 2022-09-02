@@ -1,5 +1,6 @@
 import DashboardIcon from "../../assets/icons/home.svg";
-import ExchangeIcon from "../../assets/icons/chart-1.svg";
+import ChainIcon from "../../assets/icons/chain.svg";
+import NetworkIcon from "../../assets/icons/network.svg";
 import WalletIcon from "../../assets/icons/wallet.svg";
 import ChartIcon from "../../assets/icons/chart.svg";
 import ProfileIcon from "../../assets/icons/user-profile.svg";
@@ -12,9 +13,14 @@ export const navigations = [
     route: "/dashboard",
   },
   {
-    item: "Exchange",
-    iconPath: ExchangeIcon,
-    route: "/exchange",
+    item: "Blockchain",
+    iconPath: ChainIcon,
+    route: "/blockchain",
+  },
+  {
+    item: "Peer Nodes",
+    iconPath: NetworkIcon,
+    route: "/peer-nodes",
   },
   {
     item: "Wallet",

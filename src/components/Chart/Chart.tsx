@@ -46,30 +46,33 @@ export const options = {
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      fill: true,
-      label: "Expense",
-      lineTension: 0.4,
-      grid: false,
-      data: labels.map(() => (Math.random() * 100).toFixed(2)),
-      borderColor: "#4a6aff",
-      backgroundColor: (context: ScriptableContext<"line">) => {
-        const ctx = context.chart.ctx;
-        const gradient = ctx.createLinearGradient(0, 0, 0, 250);
-        gradient.addColorStop(0, "rgba(77, 202, 255, 3)");
-        gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
-        return gradient;
-      },
-    },
-  ],
+type ChartProps = {
+  type: "Balance" | "Mining" | "Spendings" | "Gains";
+  chartData: any[];
+  labels: string[];
 };
 
-const Chart = () => {
+const Chart = ({ type, chartData, labels }: ChartProps) => {
+  const data = {
+    labels,
+    datasets: [
+      {
+        fill: true,
+        label: type,
+        lineTension: 0.4,
+        grid: false,
+        data: chartData,
+        borderColor: "#4a6aff",
+        backgroundColor: (context: ScriptableContext<"line">) => {
+          const ctx = context.chart.ctx;
+          const gradient = ctx.createLinearGradient(0, 0, 0, 250);
+          gradient.addColorStop(0, "rgba(77, 202, 255, 3)");
+          gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+          return gradient;
+        },
+      },
+    ],
+  };
   return <Line options={options} data={data} />;
 };
 

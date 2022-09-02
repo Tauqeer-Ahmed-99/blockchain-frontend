@@ -3,7 +3,7 @@ import CarouselItem from "../Carousel/CarouselItem";
 import Chart from "../Chart/Chart";
 
 import "./dashboard.css";
-import { carouselItems } from "./mockData";
+import { carouselItems, chartLabels } from "../../assets/mock/mockData";
 
 const Dashboard = () => {
   return (
@@ -52,7 +52,11 @@ const Dashboard = () => {
           </div>
         </section>
         <div className="dashboard-chart">
-          <Chart />
+          <Chart
+            type="Spendings"
+            chartData={chartLabels.map(() => (Math.random() * 100).toFixed(2))}
+            labels={chartLabels}
+          />
         </div>
       </main>
     </div>

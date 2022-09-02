@@ -10,14 +10,14 @@ import MineIcon from "../../assets/icons/mine.svg";
 import SendIcon from "../../assets/icons/arrow-up-action.svg";
 import ReceiveIcon from "../../assets/icons/arrow-down-action.svg";
 
-import "../ProfileInfo/profileinfo.css";
+import "./walletinfo.css";
 import { useNavigate } from "react-router-dom";
 
-type ProfileInfoProps = {
-  onProfilePage?: boolean;
+type WalletInfoProps = {
+  onWalletPage?: boolean;
 };
 
-const ProfileInfo = ({ onProfilePage = false }: ProfileInfoProps) => {
+const WalletInfo = ({ onWalletPage = false }: WalletInfoProps) => {
   const [isProfileListVisible, setIsProfileListVisible] = useState(false);
 
   const navigate = useNavigate();
@@ -29,8 +29,8 @@ const ProfileInfo = ({ onProfilePage = false }: ProfileInfoProps) => {
   };
 
   return (
-    <div className={`profile${onProfilePage ? "-on-profile-page" : ""}`}>
-      <div className="profile-header">
+    <div className={`wallet${onWalletPage ? "-on-wallet-page" : ""}`}>
+      <div className="wallet-header">
         <img
           src={NotificationIcon}
           alt="Notification Icon"
@@ -65,7 +65,7 @@ const ProfileInfo = ({ onProfilePage = false }: ProfileInfoProps) => {
         </div>
       </div>
       <div className="balance-card">
-        <h3>My Cards</h3>
+        <h3>My Wallet</h3>
         <div className="card">
           <div className="balance">
             <div className="text">Balance</div>
@@ -114,4 +114,4 @@ const ProfileInfo = ({ onProfilePage = false }: ProfileInfoProps) => {
   );
 };
 
-export default ProfileInfo;
+export default WalletInfo;

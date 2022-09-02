@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
+import WalletInfo from "../../components/WalletInfo/WalletInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
 import "./profilescreen.css";
@@ -8,7 +8,8 @@ const ProfileScreen = () => {
   return (
     <div className="profile-screen">
       <Sidebar />
-      <ProfileInfo onProfilePage />
+      <div className="profile-info">Profile</div>
+      <WalletInfo />
     </div>
   );
 };

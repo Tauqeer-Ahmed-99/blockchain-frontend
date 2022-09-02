@@ -5,7 +5,7 @@
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: "sidebar sidebar exchange exchange exchange exchange exchange exchange exchange profileInfo profileInfo profileInfo";
+  grid-template-areas: "sidebar sidebar exchange exchange exchange exchange exchange exchange exchange walletInfo walletInfo walletInfo";
 }
 
 .exchange {

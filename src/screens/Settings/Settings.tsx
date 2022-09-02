@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
+import WalletInfo from "../../components/WalletInfo/WalletInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
 import "./settings.css";
@@ -9,7 +9,7 @@ const Settings = () => {
     <div className="settings-screen">
       <Sidebar />
       <div className="settings">Settings</div>
-      <ProfileInfo />
+      <WalletInfo />
     </div>
   );
 };

@@ -5,9 +5,9 @@
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: "sidebar sidebar profileInfo profileInfo profileInfo profileInfo profileInfo profileInfo profileInfo";
+  grid-template-areas: "sidebar sidebar profile profile profile profile profile profile profile walletInfo walletInfo walletInfo";
 }
 
-.profile-block {
+.profile-info {
   grid-area: profile;
 }

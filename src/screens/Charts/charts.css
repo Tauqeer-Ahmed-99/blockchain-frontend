@@ -5,7 +5,7 @@
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: "sidebar sidebar charts charts charts charts charts charts charts profileInfo profileInfo profileInfo";
+  grid-template-areas: "sidebar sidebar charts charts charts charts charts charts charts walletInfo walletInfo walletInfo";
 }
 
 .charts {

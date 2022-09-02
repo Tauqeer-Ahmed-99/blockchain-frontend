@@ -27,24 +27,55 @@ const LoginScreen = () => {
           <img src={CryptoLogo} alt={"Crypto logo"} />
           <div>Cryptowall</div>
         </div>
-        <div className="inputs">
-          <input
-            className="username-field"
-            type="text"
-            placeholder="Username"
-          />
-          <input
-            className="password-field"
-            type="password"
-            placeholder="Password"
-          />
+        <div className={`inputs${isSigningUp ? " space" : ""}`}>
           {isSigningUp ? (
-            <>
+            <div className="username-group">
               <input
-                className="password-field"
-                type="password"
-                placeholder="Confirm password"
+                className="username-field"
+                type="text"
+                placeholder="Username"
               />
+              <input
+                className="username-field"
+                type="text"
+                placeholder="Confirm Username"
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+          <div className="email-group">
+            <input className="email-field" type="email" placeholder="Email" />
+            {isSigningUp ? (
+              <input
+                className="confirm email-field"
+                type="email"
+                placeholder="Confirm Email"
+              />
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className="password-group">
+            <input
+              className="password-field"
+              type="password"
+              placeholder="Password"
+            />
+            {isSigningUp ? (
+              <>
+                <input
+                  className="password-field"
+                  type="password"
+                  placeholder="Confirm password"
+                />
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+          {isSigningUp ? (
+            <div>
               <input
                 className="birth-date-field"
                 type="text"
@@ -53,7 +84,7 @@ const LoginScreen = () => {
                 onFocus={() => (birthDateRef.current.type = "date")}
                 onBlur={() => (birthDateRef.current.type = "text")}
               />
-            </>
+            </div>
           ) : (
             <></>
           )}

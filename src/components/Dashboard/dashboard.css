@@ -3,6 +3,8 @@
 
   grid-area: dashboard;
 
+  height: calc(100vh - 2rem);
+
   border-radius: 1rem 0 0 1rem;
 }
 
@@ -14,7 +16,6 @@
 
   display: flex;
   justify-content: space-between;
-
   align-items: center;
 }
 

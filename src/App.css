@@ -14,6 +14,7 @@
   --blue: #4162ff;
   --sky-blue: #22bdff;
   --success: #28a745;
+  --warning: #dfaa50;
   --danger: #dc3545;
 
   --background: #f2f5ff;
@@ -33,6 +34,7 @@
   --dark-button-hover: #3147b5;
   --arrow-button-hover: #59ccfb;
   --arrow-button-font-color: #a3acc9;
+  --warning-hover: #ab833d;
 
   --input-focus-border: #3fbcfc;
 

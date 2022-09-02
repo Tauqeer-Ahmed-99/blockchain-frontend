@@ -1,0 +1,13 @@
+.peer-nodes-screen {
+  padding: 1rem;
+
+  background: var(--homescreen-bg);
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas: "sidebar sidebar nodes nodes nodes nodes nodes nodes nodes walletInfo walletInfo walletInfo";
+}
+
+.peer-nodes {
+  grid-area: nodes;
+}

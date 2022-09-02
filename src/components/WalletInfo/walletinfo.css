@@ -1,4 +1,6 @@
 .wallet {
+  height: calc(100vh - 2rem);
+
   grid-area: walletInfo;
 
   background: var(--white);
@@ -7,6 +9,8 @@
 }
 
 .wallet-on-wallet-page {
+  height: calc(100vh - 2rem);
+
   grid-area: walletInfo;
 
   background: linear-gradient(to right, var(--white), var(--background));

@@ -7,7 +7,3 @@
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas: "sidebar sidebar profile profile profile profile profile profile profile walletInfo walletInfo walletInfo";
 }
-
-.profile-info {
-  grid-area: profile;
-}

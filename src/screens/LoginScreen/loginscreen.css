@@ -1,7 +1,7 @@
 .login-screen {
   margin: auto;
 
-  width: 30rem;
+  width: 50rem;
 
   display: flex;
   justify-content: center;
@@ -41,7 +41,24 @@
   align-items: center;
 }
 
+.inputs > div {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space > div {
+  justify-content: space-between;
+}
+
+.inputs > div > input {
+  width: 47%;
+}
+
 .username-field,
+.email-field,
 .password-field {
   margin: 1rem 0;
   padding: 1rem;
@@ -60,6 +77,12 @@
   box-shadow: 0 2px 15px -8px var(--shadow);
 }
 
+.email-field {
+  background: url("../../assets/icons/email-icon.svg") no-repeat scroll 1rem;
+  background-size: 1.5rem;
+  background-color: var(--white);
+}
+
 .password-field {
   background: url("../../assets/icons/password-outlined.svg") no-repeat scroll
     1rem;
@@ -68,6 +91,7 @@
 }
 
 .username-field:focus,
+.email-field:focus,
 .password-field:focus,
 input[type="date"]:focus {
   outline: none !important;
@@ -78,6 +102,8 @@ input[type="date"]:focus {
   position: relative;
   width: 100vw;
   height: 100vh;
+
+  background: linear-gradient(to right, var(--white), var(--background));
 }
 
 .login-screen {
@@ -115,7 +141,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .action {
-  width: 90%;
+  width: 50%;
 }
 
 .action button {

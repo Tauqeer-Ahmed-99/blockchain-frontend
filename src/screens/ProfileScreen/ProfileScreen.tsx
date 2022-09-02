@@ -8,7 +8,7 @@ const ProfileScreen = () => {
   return (
     <div className="profile-screen">
       <Sidebar />
-      <ProfileInfo />
+      <ProfileInfo onProfilePage />
     </div>
   );
 };

@@ -1,0 +1,57 @@
+.settings {
+  background: linear-gradient(to right, var(--white), var(--background));
+
+  grid-area: settings;
+
+  height: calc(100vh - 2rem);
+
+  border-radius: 1rem 0 0 1rem;
+}
+
+.settings-header {
+  width: 95%;
+
+  margin: auto;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-username {
+  color: var(--subheading-text);
+}
+
+.settings-heading-text {
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.settings-container {
+  width: 95%;
+
+  margin: auto;
+}
+
+.settings-container .theme {
+  padding: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch-with-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 9rem;
+}
+
+.switch-with-icons img {
+  height: 1.75rem;
+  width: 1.75rem;
+  margin: 0.5rem;
+}

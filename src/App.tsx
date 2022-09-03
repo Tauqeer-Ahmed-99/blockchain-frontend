@@ -10,7 +10,7 @@ import NoPageFound from "./screens/NoPageFound/NoPageFound";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 import Settings from "./screens/Settings/Settings";
 import Wallet from "./screens/Wallet/Wallet";
-import Blockchain from "./screens/Blockchain/Blockchain";
+import BlockchainScreen from "./screens/BlockchainScreen/BlockchainScreen";
 
 const App = () => {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const App = () => {
       <Route path="/" element={<LoginScreen />}></Route>
       <Route path="/login" element={<LoginScreen />}></Route>
       <Route path="/dashboard" element={<HomeScreen />}></Route>
-      <Route path="/blockchain" element={<Blockchain />}></Route>
+      <Route path="/blockchain" element={<BlockchainScreen />}></Route>
       <Route path="/peer-nodes" element={<PeerNodes />}></Route>
       <Route path="/wallet" element={<Wallet />}></Route>
       <Route path="/charts" element={<Charts />}></Route>

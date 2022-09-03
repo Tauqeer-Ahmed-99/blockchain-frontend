@@ -56,3 +56,51 @@
 
   --border: #cecccc;
 }
+
+[data-theme="dark"] {
+  --white: #fff;
+  --blue: #4162ff;
+  --sky-blue: #22bdff;
+  --success: #28a745;
+  --warning: #dfaa50;
+  --danger: #dc3545;
+
+  --background: #f2f5ff;
+  --background-end: #fbfcff;
+  --homescreen-bg: #f2f5ff;
+
+  --heading-text: #000;
+  --subheading-text: #b7b7b7;
+  --sidebar-inactive-text: #b7cfff;
+  --sidebar-inactive-svg: invert(76%) sepia(12%) saturate(1148%)
+    hue-rotate(189deg) brightness(104%) contrast(101%);
+
+  --notification: invert(63%) sepia(93%) saturate(2%) hue-rotate(59deg)
+    brightness(97%) contrast(97%);
+
+  --button-hover: #1697ce;
+  --dark-button-hover: #3147b5;
+  --arrow-button-hover: #59ccfb;
+  --arrow-button-font-color: #a3acc9;
+  --warning-hover: #ab833d;
+  --danger-hover: #ac2b38;
+
+  --input-focus-border: #3fbcfc;
+
+  --shadow: #b7b7b7;
+
+  --success-svg: invert(35%) sepia(59%) saturate(3904%) hue-rotate(222deg)
+    brightness(98%) contrast(107%);
+  --danger-svg: invert(59%) sepia(43%) saturate(1558%) hue-rotate(166deg)
+    brightness(100%) contrast(102%);
+  --white-svg: invert(100%) sepia(99%) saturate(2%) hue-rotate(14deg)
+    brightness(108%) contrast(100%);
+
+  --chart-line: #4a6aff;
+  --chart-area: #c3edff;
+
+  --card: #22bdff;
+  --card-shadow: #d4ecff;
+
+  --border: #cecccc;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
 import "./App.css";
@@ -8,11 +8,14 @@ import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import NoPageFound from "./screens/NoPageFound/NoPageFound";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
-import Settings from "./screens/Settings/Settings";
+import SettingsScreen from "./screens/SettingsScreen/SettingsScreen";
 import Wallet from "./screens/Wallet/Wallet";
 import BlockchainScreen from "./screens/BlockchainScreen/BlockchainScreen";
+import ThemeContext from "./context/ThemeContext/ThemeContext";
 
 const App = () => {
+  const themeContext = useContext(ThemeContext);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,18 +26,20 @@ const App = () => {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={<LoginScreen />}></Route>
-      <Route path="/login" element={<LoginScreen />}></Route>
-      <Route path="/dashboard" element={<HomeScreen />}></Route>
-      <Route path="/blockchain" element={<BlockchainScreen />}></Route>
-      <Route path="/peer-nodes" element={<PeerNodesScreen />}></Route>
-      <Route path="/wallet" element={<Wallet />}></Route>
-      <Route path="/charts" element={<Charts />}></Route>
-      <Route path="/profile" element={<ProfileScreen />}></Route>
-      <Route path="/settings" element={<Settings />}></Route>
-      <Route path="*" element={<NoPageFound />}></Route>
-    </Routes>
+    <div data-theme={themeContext.theme}>
+      <Routes>
+        <Route path="/" element={<LoginScreen />}></Route>
+        <Route path="/login" element={<LoginScreen />}></Route>
+        <Route path="/dashboard" element={<HomeScreen />}></Route>
+        <Route path="/blockchain" element={<BlockchainScreen />}></Route>
+        <Route path="/peer-nodes" element={<PeerNodesScreen />}></Route>
+        <Route path="/wallet" element={<Wallet />}></Route>
+        <Route path="/charts" element={<Charts />}></Route>
+        <Route path="/profile" element={<ProfileScreen />}></Route>
+        <Route path="/settings" element={<SettingsScreen />}></Route>
+        <Route path="*" element={<NoPageFound />}></Route>
+      </Routes>
+    </div>
   );
 };
 

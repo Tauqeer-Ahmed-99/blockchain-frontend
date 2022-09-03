@@ -1,18 +1,18 @@
 import React from "react";
-import Dashboard from "../../components/Dashboard/Dashboard";
 import WalletInfo from "../../components/WalletInfo/WalletInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
-import "./homescreen.css";
+import "./chartsscreen.css";
+import ChartsGroup from "../../components/Charts/ChartsGroup";
 
-const HomeScreen = () => {
+const ChartsScreen = () => {
   return (
-    <div className="homescreen">
+    <div className="charts-screen">
       <Sidebar />
-      <Dashboard />
+      <ChartsGroup />
       <WalletInfo />
     </div>
   );
 };
 
-export default HomeScreen;
+export default ChartsScreen;

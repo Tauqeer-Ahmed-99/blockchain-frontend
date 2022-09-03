@@ -11,7 +11,7 @@ const ChartsGroup = () => {
       <header className="charts-group-header">
         <div>
           <div className="charts-group-username">Tauqeer Khan</div>
-          <div className="charts-group-heading-text">Dashboard</div>
+          <div className="charts-group-heading-text">Statistics</div>
         </div>
       </header>
       <div className="balance-chart">

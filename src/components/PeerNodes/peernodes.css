@@ -1,0 +1,109 @@
+.peer-nodes {
+  background: linear-gradient(to right, var(--white), var(--background));
+
+  grid-area: nodes;
+
+  height: calc(100vh - 2rem);
+
+  border-radius: 1rem 0 0 1rem;
+
+  overflow: scroll;
+}
+
+.peer-nodes::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.peer-nodes {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.peer-nodes-header {
+  width: 95%;
+
+  margin: auto;
+  padding: 1rem;
+}
+
+.peer-nodes-user-name {
+  color: var(--subheading-text);
+}
+
+.peer-nodes-heading-text {
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.add-node-input {
+  margin: auto;
+  padding: 1rem;
+
+  width: 95%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.add-node-input .add-node-field {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  padding-left: 4rem;
+
+  height: 3rem;
+  width: 100%;
+
+  border: none;
+  border-radius: 1rem;
+
+  background: url("../../assets/icons/node-network.svg") no-repeat scroll 1rem;
+  background-size: 1.5rem;
+  background-color: var(--white);
+
+  box-shadow: 0 2px 15px -8px var(--shadow);
+}
+
+.add-node-input > div {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.add-node-input > div > label {
+  margin: 0.5rem 0 -0.75rem 0.5rem;
+}
+
+.add-node-input button {
+  margin: 1rem 0 1rem 1rem;
+  padding: 0.75rem 1rem;
+
+  width: 5rem;
+  height: 3rem;
+
+  cursor: pointer;
+
+  background: var(--blue);
+
+  border: none;
+  border-radius: 1rem;
+
+  color: var(--white);
+  font-weight: 500;
+}
+
+.add-node-input button:hover {
+  background: var(--dark-button-hover);
+}
+
+.peer-nodes-container {
+  width: 95%;
+
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.peer-nodes-container .node-heading {
+  margin-bottom: 1rem;
+}

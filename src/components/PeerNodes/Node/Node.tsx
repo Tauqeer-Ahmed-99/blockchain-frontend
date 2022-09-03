@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+
+import Dialog from "../../Dialog/Dialog";
+import CloseIcon from "../../../assets/icons/close.svg";
 
 import "./node.css";
 
@@ -7,10 +10,33 @@ type NodePropsType = {
 };
 
 const Node = ({ node }: NodePropsType) => {
+  const [isConfirmationBoxOpen, setIsConfirmationBoxOpen] = useState(false);
+
+  const openConfirmationBox = () => {
+    setIsConfirmationBoxOpen(true);
+  };
+
+  const closeConfirmationBox = () => {
+    setIsConfirmationBoxOpen(false);
+  };
+
   return (
     <div className="node">
       <span>{node}</span>
-      <button>Remove</button>
+      <button onClick={openConfirmationBox}>Remove</button>
+      <Dialog open={isConfirmationBoxOpen} onClose={closeConfirmationBox}>
+        <div className="dialog-header">
+          <h3>Are you sure?</h3>
+          <img src={CloseIcon} alt="close" onClick={closeConfirmationBox} />
+        </div>
+        <div className="dialog-content">
+          <p>Do you really want to remove this node?</p>
+        </div>
+        <div className="dialog-actions">
+          <button onClick={closeConfirmationBox}>Yes</button>
+          <button onClick={closeConfirmationBox}>No</button>
+        </div>
+      </Dialog>
     </div>
   );
 };

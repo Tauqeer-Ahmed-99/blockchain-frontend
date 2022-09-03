@@ -40,6 +40,7 @@
   --input-focus-border: #3fbcfc;
 
   --shadow: #b7b7b7;
+  --dialog-shadow: #878787;
 
   --success-svg: invert(35%) sepia(59%) saturate(3904%) hue-rotate(222deg)
     brightness(98%) contrast(107%);

@@ -26,3 +26,15 @@
 .node button:hover {
   background: var(--danger-hover);
 }
+
+.dialog-header img {
+  cursor: pointer;
+}
+
+.dialog-actions button:nth-child(2) {
+  background: var(--warning);
+}
+
+.dialog-actions button:nth-child(2):hover {
+  background: var(--warning-hover);
+}

@@ -2,9 +2,9 @@ import React from "react";
 import WalletInfo from "../../components/WalletInfo/WalletInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
-import "./wallet.css";
+import "./walletscreen.css";
 
-const Wallet = () => {
+const WalletScreen = () => {
   return (
     <div className="wallet-screen">
       <Sidebar />
@@ -13,4 +13,4 @@ const Wallet = () => {
   );
 };
 
-export default Wallet;
+export default WalletScreen;

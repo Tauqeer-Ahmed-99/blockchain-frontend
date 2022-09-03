@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 
 import CryptoLogo from "../../assets/icons/cryptowall-logo.svg";
 
-import "./nopagefound.css";
+import "./pagenotfoundscreen.css";
 
-const NoPageFound = () => {
+const PageNotFoundScreen = () => {
   const { pathname } = useLocation();
 
   return (
@@ -33,4 +33,4 @@ const NoPageFound = () => {
   );
 };
 
-export default NoPageFound;
+export default PageNotFoundScreen;

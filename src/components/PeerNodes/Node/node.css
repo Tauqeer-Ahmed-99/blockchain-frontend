@@ -1,0 +1,28 @@
+.node {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+
+  border: 3px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.node button {
+  padding: 0.5rem;
+
+  border: none;
+  border-radius: 0.75rem;
+
+  cursor: pointer;
+
+  color: var(--white);
+
+  background: var(--danger);
+}
+
+.node button:hover {
+  background: var(--danger-hover);
+}

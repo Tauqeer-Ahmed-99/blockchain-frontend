@@ -2,16 +2,17 @@ import React from "react";
 import WalletInfo from "../../components/WalletInfo/WalletInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
-import "./peernodes.css";
+import "./peernodesscreen.css";
+import PeerNodes from "../../components/PeerNodes/PeerNodes";
 
-const PeerNodes = () => {
+const PeerNodesScreen = () => {
   return (
     <div className="peer-nodes-screen">
       <Sidebar />
-      <div className="peer-nodes">Peer Nodes</div>
+      <PeerNodes />
       <WalletInfo />
     </div>
   );
 };
 
-export default PeerNodes;
+export default PeerNodesScreen;

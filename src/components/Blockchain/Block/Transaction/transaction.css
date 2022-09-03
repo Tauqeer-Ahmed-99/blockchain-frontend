@@ -1,0 +1,11 @@
+.transaction {
+  margin: 1rem 0;
+  padding: 1rem;
+
+  border: 2px solid var(--border);
+  border-radius: 0.25rem;
+}
+
+.transaction p {
+  word-wrap: break-word;
+}

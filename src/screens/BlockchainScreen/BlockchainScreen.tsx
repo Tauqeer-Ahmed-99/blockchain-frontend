@@ -1,18 +1,19 @@
 import React from "react";
 
+import Blockchain from "../../components/Blockchain/Blockchain";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import WalletInfo from "../../components/WalletInfo/WalletInfo";
 
-import "./blockchain.css";
+import "./blockchainscreen.css";
 
-const Blockchain = () => {
+const BlockchainScreen = () => {
   return (
     <div className="blockchain-screen">
       <Sidebar />
-      <div className="blockchain-component">Blockchain</div>
+      <Blockchain />
       <WalletInfo />
     </div>
   );
 };
 
-export default Blockchain;
+export default BlockchainScreen;

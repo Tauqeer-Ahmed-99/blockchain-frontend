@@ -1,0 +1,31 @@
+.block {
+  margin: 0.5rem 0;
+  padding: 1rem;
+
+  border: 3px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.block h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.block .block-details .transaction-heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.transactions-list {
+  margin-left: 8rem;
+}
+
+.block .block-details p {
+  word-wrap: break-word;
+}

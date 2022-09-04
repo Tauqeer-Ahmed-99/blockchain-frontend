@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import RecentTransactionTile from "../RecentTransactionTile/RecentTransactionTile";
 import { mockRecentTxns } from "../../assets/mock/mockData";
@@ -12,6 +12,7 @@ import ReceiveIcon from "../../assets/icons/arrow-down-action.svg";
 
 import "./walletinfo.css";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../../context/UserContext/UserContext";
 
 type WalletInfoProps = {
   onWalletPage?: boolean;
@@ -20,11 +21,13 @@ type WalletInfoProps = {
 const WalletInfo = ({ onWalletPage = false }: WalletInfoProps) => {
   const [isProfileListVisible, setIsProfileListVisible] = useState(false);
 
+  const userContext = useContext(UserContext);
+
   const navigate = useNavigate();
 
   const handleSignout = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
-    sessionStorage.removeItem("accessToken");
+    userContext.logout();
     navigate("/login");
   };
 
@@ -43,7 +46,7 @@ const WalletInfo = ({ onWalletPage = false }: WalletInfoProps) => {
           <img src={AvatarMale} alt="Avatar" className="avatar" />
 
           <div className="user">
-            <span>Tauqeer Khan </span>
+            <span>{userContext.state.user?.displayName ?? "Signup"} </span>
             <span>
               <img
                 src={!isProfileListVisible ? ArrowDown : ArrowUp}

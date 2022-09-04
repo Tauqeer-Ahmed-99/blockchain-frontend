@@ -4,6 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import ThemeProvider from "./context/ThemeContext/ThemeProvider";
+import UserProvider from "./context/UserContext/UserProvider";
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -14,7 +15,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <App />
+        <UserProvider>
+          <App />
+        </UserProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>

@@ -187,3 +187,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .question:hover {
   text-decoration: underline;
 }
+
+.loading-dialog-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.loading-dialog-box span:nth-child(1) {
+  margin-right: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-actions button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  cursor: pointer;
+
+  background: var(--sky-blue);
+
+  color: var(--white);
+}
+
+.dialog-actions button:hover {
+  background: var(--button-hover);
+}

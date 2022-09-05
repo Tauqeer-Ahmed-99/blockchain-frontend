@@ -105,10 +105,6 @@ const LoginScreen = () => {
     }
   }, [formValues, event, validateForm]);
 
-  useEffect(() => {
-    console.log(fieldErrors);
-  }, [fieldErrors]);
-
   const userContext = useContext(UserContext);
 
   const navigate = useNavigate();

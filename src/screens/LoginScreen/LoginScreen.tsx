@@ -41,16 +41,14 @@ const LoginScreen = () => {
   const [event, setEvent] =
     useState<React.ChangeEvent<HTMLInputElement> | null>(null);
 
+  const userContext = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  const birthDateRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+
   const verifyEmail = (email: string) => {
     return emailRegex.test(email);
-  };
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [event.target.name]: event.target.value,
-    }));
-    setEvent(event);
   };
 
   const validateForm = useCallback(
@@ -95,21 +93,17 @@ const LoginScreen = () => {
     ]
   );
 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [event.target.name]: event.target.value,
+    }));
+    setEvent(event);
+  };
+
   const handleInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     validateForm(event);
   };
-
-  useEffect(() => {
-    if (event) {
-      validateForm(event);
-    }
-  }, [formValues, event, validateForm]);
-
-  const userContext = useContext(UserContext);
-
-  const navigate = useNavigate();
-
-  const birthDateRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   const handleClick = () => {
     if (!isSigningUp) {
@@ -137,6 +131,12 @@ const LoginScreen = () => {
       navigate("/dashboard");
     }
   }, [navigate, userContext]);
+
+  useEffect(() => {
+    if (event) {
+      validateForm(event);
+    }
+  }, [formValues, event, validateForm]);
 
   return (
     <div className="login-signup">

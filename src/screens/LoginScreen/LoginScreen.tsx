@@ -55,7 +55,8 @@ const LoginScreen = () => {
     (
       event:
         | React.FocusEvent<HTMLInputElement>
-        | React.ChangeEvent<HTMLInputElement>
+        | React.ChangeEvent<HTMLInputElement>,
+      checkForMatch = false
     ) => {
       const errors: {
         [key: string]: boolean;
@@ -76,6 +77,17 @@ const LoginScreen = () => {
           new Date(formValues.userBirthDate).getFullYear() <=
             new Date().getFullYear() - 18 || !formValues.userBirthDate,
       };
+
+      if (checkForMatch) {
+        const confirmFieldName =
+          event.target.name.charAt(0).toUpperCase() +
+          event.target.name.slice(1);
+        setFieldErrors((prevState) => ({
+          ...prevState,
+          [event.target.name]: errors[event.target.name],
+          [`confirm${confirmFieldName}`]: errors[`confirm${confirmFieldName}`],
+        }));
+      }
 
       setFieldErrors((prevState) => ({
         ...prevState,
@@ -106,15 +118,21 @@ const LoginScreen = () => {
   };
 
   const handleClick = () => {
-    if (!isSigningUp) {
-      userContext.login(formValues.userEmail, formValues.userPassword);
-    } else {
-      userContext.createAccount(
-        formValues.userEmail,
-        formValues.userPassword,
-        formValues.userName,
-        formValues.userBirthDate
-      );
+    const isFormHasAnyError = Object.values(fieldErrors).some(
+      (isError) => isError
+    );
+
+    if (!isFormHasAnyError) {
+      if (!isSigningUp) {
+        userContext.login(formValues.userEmail, formValues.userPassword);
+      } else {
+        userContext.createAccount(
+          formValues.userEmail,
+          formValues.userPassword,
+          formValues.userName,
+          formValues.userBirthDate
+        );
+      }
     }
   };
 
@@ -134,7 +152,7 @@ const LoginScreen = () => {
 
   useEffect(() => {
     if (event) {
-      validateForm(event);
+      validateForm(event, true);
     }
   }, [formValues, event, validateForm]);
 

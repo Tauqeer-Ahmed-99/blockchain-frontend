@@ -122,10 +122,12 @@ const LoginScreen = () => {
       (isError) => isError
     );
 
-    if (!isFormHasAnyError) {
-      if (!isSigningUp) {
+    if (!isSigningUp) {
+      if (!fieldErrors.userEmail && !fieldErrors.userPassword) {
         userContext.login(formValues.userEmail, formValues.userPassword);
-      } else {
+      }
+    } else {
+      if (!isFormHasAnyError) {
         userContext.createAccount(
           formValues.userEmail,
           formValues.userPassword,
@@ -134,6 +136,19 @@ const LoginScreen = () => {
         );
       }
     }
+  };
+
+  const handleQuestionClick = () => {
+    setIsSigningUp((prevState) => !prevState);
+    setFieldErrors({
+      userName: false,
+      confirmUserName: false,
+      userEmail: false,
+      confirmUserEmail: false,
+      userPassword: false,
+      confirmUserPassword: false,
+      userBirthDate: false,
+    });
   };
 
   const closeMessageBox = () => {
@@ -317,10 +332,7 @@ const LoginScreen = () => {
             {!isSigningUp ? "Login" : "Signup"}
           </button>
         </div>
-        <div
-          onClick={() => setIsSigningUp((prevState) => !prevState)}
-          className="question"
-        >
+        <div onClick={handleQuestionClick} className="question">
           {!isSigningUp
             ? "Don't have an account? Signup instead."
             : "Already have an account? Login instead."}

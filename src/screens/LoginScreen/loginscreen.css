@@ -39,6 +39,8 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
+  position: relative;
 }
 
 .inputs > div {
@@ -217,4 +219,28 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .dialog-actions button:hover {
   background: var(--button-hover);
+}
+
+.username-group,
+.email-group,
+.password-group,
+.birthDate-group {
+  position: relative;
+}
+
+.error-msg {
+  position: absolute;
+  top: 4rem;
+
+  color: var(--danger);
+  font-size: small;
+  font-weight: 500;
+}
+
+.normal {
+  left: 14rem;
+}
+
+.confirm {
+  left: 27rem;
 }

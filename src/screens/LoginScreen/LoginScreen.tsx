@@ -87,12 +87,12 @@ const LoginScreen = () => {
           [event.target.name]: errors[event.target.name],
           [`confirm${confirmFieldName}`]: errors[`confirm${confirmFieldName}`],
         }));
+      } else {
+        setFieldErrors((prevState) => ({
+          ...prevState,
+          [event.target.name]: errors[event.target.name],
+        }));
       }
-
-      setFieldErrors((prevState) => ({
-        ...prevState,
-        [event.target.name]: errors[event.target.name],
-      }));
     },
     [
       formValues.confirmUserEmail,

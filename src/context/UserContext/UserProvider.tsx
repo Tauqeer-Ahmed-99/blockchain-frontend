@@ -17,15 +17,18 @@ import UserContext, {
 } from "./UserContext";
 import {
   CREATE_ACCOUNT,
+  LOAD_ACCOUNT,
   LOGIN_ACCOUNT,
   LOGIN_ERROR,
   LOGOUT_ACCOUNT,
 } from "./constants";
 import { useNavigate } from "react-router-dom";
+import { NodeResponse } from "../../utilities/blockchain.types";
 
 type Payload = {
   user: User | null;
   errorMessage: ErrorMessage;
+  userBlockchainData?: NodeResponse;
 };
 
 const userContextReducer = (
@@ -47,6 +50,7 @@ const userContextReducer = (
         isLoading: false,
         user: payload.user,
         message: "Signup successful.",
+        userBlockchainDetails: payload.userBlockchainData ?? null,
       };
     case CREATE_ACCOUNT.FAIL:
       return {
@@ -67,6 +71,7 @@ const userContextReducer = (
         isLoading: false,
         user: payload.user,
         message: "Login successful.",
+        userBlockchainDetails: payload.userBlockchainData ?? null,
       };
     case LOGIN_ACCOUNT.FAIL:
       return {
@@ -75,10 +80,27 @@ const userContextReducer = (
         isError: true,
         errorMessage: payload.errorMessage,
       };
-    case LOGIN_ACCOUNT.LOAD:
+    case LOAD_ACCOUNT.START:
       return {
         ...state,
+        isLoading: true,
+        loadingMessage: "Loading user, please wait...",
+      };
+    case LOAD_ACCOUNT.SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
         user: payload.user,
+        message: "Loading user successful.",
+        userBlockchainDetails: payload.userBlockchainData ?? null,
+      };
+    case LOAD_ACCOUNT.FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        user: null,
+        message: "Loading user Fail.",
+        isError: true,
       };
     case LOGIN_ERROR.CLOSE_MESSAGE_BOX:
       return {
@@ -113,9 +135,19 @@ const UserProvider = ({
 
       const user = await createUserWithEmailAndPassword(auth, email, password);
 
+      const createNodeURL =
+        process.env.REACT_APP_DEV_ADDRESS + `/create-node/${user.user.uid}`;
+
+      const blockchainCreateNodeResponse = await fetch(createNodeURL, {
+        method: "POST",
+      });
+
+      const parsedResponse: NodeResponse =
+        await blockchainCreateNodeResponse.json();
+
       await updateProfile(user.user, {
         displayName: username,
-        photoURL: birthDate,
+        photoURL: parsedResponse.wallet.public_key,
       });
 
       sessionStorage.setItem("user", JSON.stringify(user.user));
@@ -125,6 +157,7 @@ const UserProvider = ({
         payload: {
           user: user.user,
           errorMessage: { error: "", errorMessage: "" },
+          userBlockchainData: parsedResponse,
         },
       });
 
@@ -150,6 +183,14 @@ const UserProvider = ({
 
       const user = await signInWithEmailAndPassword(auth, email, password);
 
+      const loadNodeURL =
+        process.env.REACT_APP_DEV_ADDRESS + `/load-node/${user.user.uid}`;
+
+      const blockchainLoadNodeResponse = await fetch(loadNodeURL);
+
+      const parsedResponse: NodeResponse =
+        await blockchainLoadNodeResponse.json();
+
       sessionStorage.setItem("user", JSON.stringify(user.user));
 
       dispatch({
@@ -157,6 +198,7 @@ const UserProvider = ({
         payload: {
           user: user.user,
           errorMessage: { error: "", errorMessage: "" },
+          userBlockchainData: parsedResponse,
         },
       });
 
@@ -191,11 +233,38 @@ const UserProvider = ({
     }
   };
 
-  const loadUser = (user: User) => {
-    dispatch({
-      type: LOGIN_ACCOUNT.LOAD,
-      payload: { user, errorMessage: { error: "", errorMessage: "" } },
-    });
+  const loadUser = async (user: User) => {
+    try {
+      dispatch({
+        type: LOAD_ACCOUNT.START,
+        payload: { user: null, errorMessage: { error: "", errorMessage: "" } },
+      });
+
+      const loadNodeURL =
+        process.env.REACT_APP_DEV_ADDRESS + `/load-node/${user.uid}`;
+
+      const blockchainLoadNodeResponse = await fetch(loadNodeURL);
+
+      const parsedResponse: NodeResponse =
+        await blockchainLoadNodeResponse.json();
+
+      dispatch({
+        type: LOAD_ACCOUNT.SUCCESS,
+        payload: {
+          user,
+          errorMessage: { error: "", errorMessage: "" },
+          userBlockchainData: parsedResponse,
+        },
+      });
+    } catch (error) {
+      dispatch({
+        type: LOAD_ACCOUNT.FAIL,
+        payload: {
+          user: null,
+          errorMessage: { error: "", errorMessage: "" },
+        },
+      });
+    }
   };
 
   const logout = () => {

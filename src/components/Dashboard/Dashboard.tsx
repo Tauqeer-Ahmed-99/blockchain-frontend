@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import CarouselItem from "../Carousel/CarouselItem";
 import Chart from "../Chart/Chart";
 
 import "./dashboard.css";
 import { carouselItems, chartLabels } from "../../assets/mock/mockData";
+import UserContext from "../../context/UserContext/UserContext";
 
 const Dashboard = () => {
+  const userContext = useContext(UserContext);
+
+  console.log(userContext.state.userBlockchainDetails);
   return (
     <div className="dashboard">
       <header className="dashboard-header">

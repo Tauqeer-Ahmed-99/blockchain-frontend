@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { User } from "firebase/auth";
+import { NodeResponse } from "../../utilities/blockchain.types";
 
 export type ErrorMessage = {
   error: string;
@@ -13,6 +14,7 @@ export type UserContextStateType = {
   loadingMessage: string;
   message: string;
   errorMessage: ErrorMessage;
+  userBlockchainDetails: NodeResponse | null;
 };
 
 export const initialState: UserContextStateType = {
@@ -22,6 +24,7 @@ export const initialState: UserContextStateType = {
   loadingMessage: "",
   message: "",
   errorMessage: { error: "", errorMessage: "" },
+  userBlockchainDetails: null,
 };
 
 type UserContextType = {

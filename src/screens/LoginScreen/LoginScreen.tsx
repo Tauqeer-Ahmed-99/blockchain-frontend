@@ -13,7 +13,7 @@ import Dialog from "../../components/Dialog/Dialog";
 import UserContext from "../../context/UserContext/UserContext";
 import CloseIcon from "../../assets/icons/close.svg";
 import { User } from "firebase/auth";
-import { emailRegex } from "../utilities/utils";
+import { emailRegex } from "../../utilities/utils";
 
 import "./loginscreen.css";
 

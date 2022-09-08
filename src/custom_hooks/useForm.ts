@@ -6,8 +6,10 @@ type ObjectOfFormValuesWhereKeyNamesMatchedWithInputFieldNames = {
 };
 type FormValues = { [key: string]: string };
 type FormErrors = { [key: string]: boolean };
-type InputChangeFunction = (event: React.ChangeEvent<HTMLInputElement>) => void;
-type InputBlurFunction = (event: React.FocusEvent<HTMLInputElement>) => void;
+type InputOnChangeFunction = (
+  event: React.ChangeEvent<HTMLInputElement>
+) => void;
+type InputOnBlurFunction = (event: React.FocusEvent<HTMLInputElement>) => void;
 type ResetFormFunction = () => void;
 type ResetFormValuesFunction = () => void;
 type ResetFormErrorsFunction = () => void;
@@ -117,8 +119,8 @@ const useForm = (
   ] as [
     FormValues,
     FormErrors,
-    InputChangeFunction,
-    InputBlurFunction,
+    InputOnChangeFunction,
+    InputOnBlurFunction,
     ResetFormFunction,
     ResetFormValuesFunction,
     ResetFormErrorsFunction

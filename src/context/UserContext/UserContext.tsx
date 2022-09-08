@@ -37,6 +37,7 @@ type UserContextType = {
   ) => void;
   login: (email: string, password: string) => void;
   loadUser: (user: User) => void;
+  updateUser: (email: string, password: string, userName: string) => void;
   logout: () => void;
   closeMessageBox: () => void;
 };
@@ -51,6 +52,7 @@ const context: UserContextType = {
   ) => {},
   login: (email: string, password: string) => {},
   loadUser: (user: User) => {},
+  updateUser: (email: string, password: string, userName: string) => {},
   logout: () => {},
   closeMessageBox: () => {},
 };

@@ -1,7 +1,11 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import useForm from "../../custom_hooks/useForm";
+import Dialog from "../Dialog/Dialog";
 
 import "./profileupdateform.css";
+import CloseIcon from "../../assets/icons/close.svg";
+import UserContext from "../../context/UserContext/UserContext";
+import CircularLoader from "../CircularLoader/CircularLoader";
 
 type UserDetails = {
   userName: string | null | undefined;
@@ -9,12 +13,20 @@ type UserDetails = {
   userBirthDate: string | null | undefined;
 };
 
-const ProfileUpdateForm = ({ userDetails }: { userDetails: UserDetails }) => {
+const ProfileUpdateForm = ({
+  userDetails,
+  isConfirmationOpen,
+  closeConfirmationBox,
+}: {
+  userDetails: UserDetails;
+  isConfirmationOpen: boolean;
+  closeConfirmationBox: () => void;
+}) => {
   const initialValues = {
     userName: userDetails.userName ?? "",
-    confirmUserName: "",
+    confirmUserName: userDetails.userName ?? "",
     userEmail: userDetails.userEmail ?? "",
-    confirmUserEmail: "",
+    confirmUserEmail: userDetails.userEmail ?? "",
     userPassword: "",
     confirmUserPassword: "",
     userBirthDate: userDetails.userBirthDate ?? "",
@@ -25,8 +37,39 @@ const ProfileUpdateForm = ({ userDetails }: { userDetails: UserDetails }) => {
 
   const birthDateRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
+  const userContext = useContext(UserContext);
+
+  const updateUserDetails = () => {
+    userContext.updateUser(
+      formValues.userEmail,
+      formValues.userPassword,
+      formValues.userName
+    );
+    closeConfirmationBox();
+  };
+
   return (
     <div className="profile-update-form">
+      <Dialog open={userContext.state.isLoading}>
+        <div className="loading">
+          <CircularLoader />
+          {"   "}
+          {userContext.state.message}
+        </div>
+      </Dialog>
+      <Dialog open={isConfirmationOpen} onClose={closeConfirmationBox}>
+        <div className="dialog-header">
+          <h3>Are you sure?</h3>
+          <img src={CloseIcon} alt="close" onClick={closeConfirmationBox} />
+        </div>
+        <div className="dialog-content">
+          Do you really want to update user details?
+        </div>
+        <div className="dialog-actions">
+          <button onClick={updateUserDetails}>Yes</button>
+          <button onClick={closeConfirmationBox}>No</button>
+        </div>
+      </Dialog>
       <div className="username-fields">
         <div className="error-parent">
           <label>Username</label>
@@ -95,6 +138,7 @@ const ProfileUpdateForm = ({ userDetails }: { userDetails: UserDetails }) => {
         <div className="error-parent">
           <label>Password</label>
           <input
+            disabled
             name="userPassword"
             className="password"
             placeholder="Enter password"
@@ -113,6 +157,7 @@ const ProfileUpdateForm = ({ userDetails }: { userDetails: UserDetails }) => {
         <div className="error-parent">
           <label>Confirm Password</label>
           <input
+            disabled
             name="confirmUserPassword"
             className="confirm-password"
             placeholder="Confirm Username"
@@ -129,6 +174,7 @@ const ProfileUpdateForm = ({ userDetails }: { userDetails: UserDetails }) => {
         <div className="error-parent">
           <label>Date of birth</label>
           <input
+            disabled
             name="userBirthDate"
             className="birthdate-field"
             type="text"

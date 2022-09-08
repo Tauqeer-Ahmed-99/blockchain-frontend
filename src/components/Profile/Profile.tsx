@@ -7,6 +7,7 @@ import ProfileUpdateForm from "./ProfileUpdateForm";
 
 const Profile = () => {
   const [isProfileUpdating, setIsProfileUpdating] = useState(false);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
 
   const userContext = useContext(UserContext);
 
@@ -14,6 +15,14 @@ const Profile = () => {
     userName: userContext.state.user?.displayName,
     userEmail: userContext.state.user?.email,
     userBirthDate: userContext.state.user?.photoURL,
+  };
+
+  const handleSaveClick = () => {
+    setIsConfirmationOpen(true);
+  };
+
+  const closeConfirmationBox = () => {
+    setIsConfirmationOpen(false);
   };
 
   return (
@@ -36,14 +45,18 @@ const Profile = () => {
       </header>
       <main className="profile-content">
         {isProfileUpdating ? (
-          <ProfileUpdateForm userDetails={userDetails} />
+          <ProfileUpdateForm
+            userDetails={userDetails}
+            isConfirmationOpen={isConfirmationOpen}
+            closeConfirmationBox={closeConfirmationBox}
+          />
         ) : (
           <ProfileDetails userDetails={userDetails} />
         )}
       </main>
       {isProfileUpdating && (
         <div className="profile-actions-footer">
-          <button>Save</button>
+          <button onClick={handleSaveClick}>Save</button>
         </div>
       )}
     </div>

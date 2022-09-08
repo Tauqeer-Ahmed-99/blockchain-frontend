@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { emailRegex } from "../utilities/utils";
 
-type ObjectOfFormValuesWhereKeysNameMatchedWithInputFieldNames = {
+type ObjectOfFormValuesWhereKeyNamesMatchedWithInputFieldNames = {
   [key: string]: string;
 };
 type FormErrors = { [key: string]: boolean };
@@ -12,7 +12,7 @@ type ResetFormValuesFunction = () => void;
 type ResetFormErrorsFunction = () => void;
 
 const useForm = (
-  initialValues: ObjectOfFormValuesWhereKeysNameMatchedWithInputFieldNames
+  initialValues: ObjectOfFormValuesWhereKeyNamesMatchedWithInputFieldNames
 ) => {
   const initialErrors: any = { ...initialValues };
 
@@ -114,7 +114,7 @@ const useForm = (
     resetValues,
     resetErrors,
   ] as [
-    ObjectOfFormValuesWhereKeysNameMatchedWithInputFieldNames,
+    ObjectOfFormValuesWhereKeyNamesMatchedWithInputFieldNames,
     FormErrors,
     InputChangeFunction,
     InputBlurFunction,

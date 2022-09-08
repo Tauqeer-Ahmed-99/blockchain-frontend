@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import UserContext from "../../context/UserContext/UserContext";
 
 import "./profile.css";
 import ProfileDetails from "./ProfileDetails";
@@ -6,6 +7,15 @@ import ProfileUpdateForm from "./ProfileUpdateForm";
 
 const Profile = () => {
   const [isProfileUpdating, setIsProfileUpdating] = useState(false);
+
+  const userContext = useContext(UserContext);
+
+  const userDetails = {
+    userName: userContext.state.user?.displayName,
+    userEmail: userContext.state.user?.email,
+    userBirthDate: userContext.state.user?.photoURL,
+  };
+
   return (
     <div className="profile">
       <header className="profile-header">
@@ -25,14 +35,16 @@ const Profile = () => {
         </div>
       </header>
       <main className="profile-content">
-        {isProfileUpdating ? <ProfileUpdateForm /> : <ProfileDetails />}
+        {isProfileUpdating ? (
+          <ProfileUpdateForm userDetails={userDetails} />
+        ) : (
+          <ProfileDetails userDetails={userDetails} />
+        )}
       </main>
-      {isProfileUpdating ? (
+      {isProfileUpdating && (
         <div className="profile-actions-footer">
           <button>Save</button>
         </div>
-      ) : (
-        <></>
       )}
     </div>
   );

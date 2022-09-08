@@ -72,15 +72,15 @@ const WalletInfo = ({ onWalletPage = false }: WalletInfoProps) => {
         <div className="card">
           <div className="balance">
             <div className="text">Balance</div>
-            <h2 className="count">$450,245</h2>
+            <h2 className="count">{`₹${userContext.state.userBlockchainDetails?.wallet.balance}`}</h2>
           </div>
           <div className="profit">
             <div className="text">Monthly profit</div>
             <h2 className="count">
-              $12,484
+              {`₹${userContext.state.userBlockchainDetails?.wallet.balance}`}
               <span>
-                <img src={ArrowUp} alt="Arrow" />
-                +10%
+                {/* <img src={ArrowUp} alt="Arrow" /> */}
+                -0%
               </span>
             </h2>
           </div>

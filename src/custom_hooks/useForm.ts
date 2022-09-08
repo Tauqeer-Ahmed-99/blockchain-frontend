@@ -4,6 +4,7 @@ import { emailRegex } from "../utilities/utils";
 type ObjectOfFormValuesWhereKeyNamesMatchedWithInputFieldNames = {
   [key: string]: string;
 };
+type FormValues = { [key: string]: string };
 type FormErrors = { [key: string]: boolean };
 type InputChangeFunction = (event: React.ChangeEvent<HTMLInputElement>) => void;
 type InputBlurFunction = (event: React.FocusEvent<HTMLInputElement>) => void;
@@ -114,7 +115,7 @@ const useForm = (
     resetValues,
     resetErrors,
   ] as [
-    ObjectOfFormValuesWhereKeyNamesMatchedWithInputFieldNames,
+    FormValues,
     FormErrors,
     InputChangeFunction,
     InputBlurFunction,

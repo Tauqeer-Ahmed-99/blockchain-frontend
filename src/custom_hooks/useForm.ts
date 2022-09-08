@@ -17,9 +17,7 @@ const useForm = (initialValues: { [key: string]: string }) => {
   }
 
   const [formValues, setFormValues] = useState(initialValues);
-  const [fieldErrors, setFieldErrors] = useState(
-    initialErrors as { [key: string]: boolean }
-  );
+  const [fieldErrors, setFieldErrors] = useState(initialErrors as FormErrors);
   const [event, setEvent] =
     useState<React.ChangeEvent<HTMLInputElement> | null>();
 

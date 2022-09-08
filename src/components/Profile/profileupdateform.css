@@ -79,3 +79,17 @@
   outline: none !important;
   border: 1px solid var(--input-focus-border);
 }
+
+.error-parent {
+  position: relative;
+}
+
+.error-field-msg {
+  position: absolute;
+  left: 0.25rem;
+  top: 4.5rem;
+
+  color: var(--danger);
+  font-size: small;
+  font-weight: 500;
+}

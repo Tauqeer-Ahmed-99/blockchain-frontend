@@ -14,7 +14,9 @@ const Dashboard = () => {
     <div className="dashboard">
       <header className="dashboard-header">
         <div>
-          <div className="dashboard-user-name">Tauqeer Khan</div>
+          <div className="dashboard-user-name">
+            {userContext.state.user?.displayName}
+          </div>
           <div className="dashboard-heading-text">Dashboard</div>
         </div>
         <div>

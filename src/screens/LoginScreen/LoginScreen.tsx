@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import CryptoLogo from "../../assets/icons/cryptowall-logo.svg";
@@ -13,13 +7,14 @@ import Dialog from "../../components/Dialog/Dialog";
 import UserContext from "../../context/UserContext/UserContext";
 import CloseIcon from "../../assets/icons/close.svg";
 import { User } from "firebase/auth";
-import { emailRegex } from "../../utilities/utils";
 
 import "./loginscreen.css";
+import useForm from "../../custom_hooks/useForm";
 
 const LoginScreen = () => {
   const [isSigningUp, setIsSigningUp] = useState(false);
-  const [formValues, setFormValues] = useState({
+
+  const initialValues = {
     userName: "",
     confirmUserName: "",
     userEmail: "",
@@ -27,95 +22,21 @@ const LoginScreen = () => {
     userPassword: "",
     confirmUserPassword: "",
     userBirthDate: "",
-    userGender: "",
-  });
-  const [fieldErrors, setFieldErrors] = useState({
-    userName: false,
-    confirmUserName: false,
-    userEmail: false,
-    confirmUserEmail: false,
-    userPassword: false,
-    confirmUserPassword: false,
-    userBirthDate: false,
-  });
-  const [event, setEvent] =
-    useState<React.ChangeEvent<HTMLInputElement> | null>(null);
+  };
+
+  const [
+    formValues,
+    fieldErrors,
+    handleInputChange,
+    handleInputBlur,
+    resetForm,
+  ] = useForm(initialValues);
 
   const userContext = useContext(UserContext);
 
   const navigate = useNavigate();
 
   const birthDateRef = useRef() as React.MutableRefObject<HTMLInputElement>;
-
-  const verifyEmail = (email: string) => {
-    return emailRegex.test(email);
-  };
-
-  const validateForm = useCallback(
-    (
-      event:
-        | React.FocusEvent<HTMLInputElement>
-        | React.ChangeEvent<HTMLInputElement>,
-      checkForMatch = false
-    ) => {
-      const errors: {
-        [key: string]: boolean;
-      } = {
-        userName: !(formValues.userName.length >= 4),
-        confirmUserName:
-          formValues.userName !== formValues.confirmUserName ||
-          !formValues.confirmUserName,
-        userEmail: !verifyEmail(formValues.userEmail),
-        confirmUserEmail:
-          formValues.userEmail !== formValues.confirmUserEmail ||
-          !formValues.confirmUserEmail,
-        userPassword: formValues.userPassword.length <= 7,
-        confirmUserPassword:
-          formValues.userPassword !== formValues.confirmUserPassword ||
-          !formValues.confirmUserPassword,
-        userBirthDate:
-          new Date(formValues.userBirthDate).getFullYear() <=
-            new Date().getFullYear() - 18 || !formValues.userBirthDate,
-      };
-
-      if (checkForMatch) {
-        const confirmFieldName =
-          event.target.name.charAt(0).toUpperCase() +
-          event.target.name.slice(1);
-        setFieldErrors((prevState) => ({
-          ...prevState,
-          [event.target.name]: errors[event.target.name],
-          [`confirm${confirmFieldName}`]: errors[`confirm${confirmFieldName}`],
-        }));
-      } else {
-        setFieldErrors((prevState) => ({
-          ...prevState,
-          [event.target.name]: errors[event.target.name],
-        }));
-      }
-    },
-    [
-      formValues.confirmUserEmail,
-      formValues.confirmUserName,
-      formValues.confirmUserPassword,
-      formValues.userBirthDate,
-      formValues.userEmail,
-      formValues.userName,
-      formValues.userPassword,
-    ]
-  );
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [event.target.name]: event.target.value,
-    }));
-    setEvent(event);
-  };
-
-  const handleInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    validateForm(event);
-  };
 
   const handleClick = () => {
     const isFormHasAnyError = Object.values(fieldErrors).some(
@@ -140,15 +61,7 @@ const LoginScreen = () => {
 
   const handleQuestionClick = () => {
     setIsSigningUp((prevState) => !prevState);
-    setFieldErrors({
-      userName: false,
-      confirmUserName: false,
-      userEmail: false,
-      confirmUserEmail: false,
-      userPassword: false,
-      confirmUserPassword: false,
-      userBirthDate: false,
-    });
+    resetForm();
   };
 
   const closeMessageBox = () => {
@@ -164,12 +77,6 @@ const LoginScreen = () => {
       navigate("/dashboard");
     }
   }, [navigate, userContext]);
-
-  useEffect(() => {
-    if (event) {
-      validateForm(event, true);
-    }
-  }, [formValues, event, validateForm]);
 
   return (
     <div className="login-signup">

@@ -1,7 +1,9 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { emailRegex } from "../utilities/utils";
 
-type FormValues = { [key: string]: string };
+type ObjectOfFormValuesWhereKeysNameMatchedWithInputFieldNames = {
+  [key: string]: string;
+};
 type FormErrors = { [key: string]: boolean };
 type InputChangeFunction = (event: React.ChangeEvent<HTMLInputElement>) => void;
 type InputBlurFunction = (event: React.FocusEvent<HTMLInputElement>) => void;
@@ -9,7 +11,9 @@ type ResetFormFunction = () => void;
 type ResetFormValuesFunction = () => void;
 type ResetFormErrorsFunction = () => void;
 
-const useForm = (initialValues: { [key: string]: string }) => {
+const useForm = (
+  initialValues: ObjectOfFormValuesWhereKeysNameMatchedWithInputFieldNames
+) => {
   const initialErrors: any = { ...initialValues };
 
   for (const fieldError in initialErrors) {
@@ -110,7 +114,7 @@ const useForm = (initialValues: { [key: string]: string }) => {
     resetValues,
     resetErrors,
   ] as [
-    FormValues,
+    ObjectOfFormValuesWhereKeysNameMatchedWithInputFieldNames,
     FormErrors,
     InputChangeFunction,
     InputBlurFunction,

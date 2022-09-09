@@ -29,7 +29,7 @@ import { NodeResponse } from "../../utilities/blockchain.types";
 type Payload = {
   user: User | null;
   errorMessage: ErrorMessage;
-  userBlockchainData?: NodeResponse;
+  userWalletData?: NodeResponse;
 };
 
 const userContextReducer = (
@@ -51,7 +51,7 @@ const userContextReducer = (
         isLoading: false,
         user: payload.user,
         message: "Signup successful.",
-        userBlockchainDetails: payload.userBlockchainData ?? null,
+        userWalletDetails: payload.userWalletData ?? null,
       };
     case CREATE_ACCOUNT.FAIL:
       return {
@@ -72,7 +72,7 @@ const userContextReducer = (
         isLoading: false,
         user: payload.user,
         message: "Login successful.",
-        userBlockchainDetails: payload.userBlockchainData ?? null,
+        userWalletDetails: payload.userWalletData ?? null,
       };
     case LOGIN_ACCOUNT.FAIL:
       return {
@@ -93,7 +93,7 @@ const userContextReducer = (
         isLoading: false,
         user: payload.user,
         message: "Loading user successful.",
-        userBlockchainDetails: payload.userBlockchainData ?? null,
+        userWalletDetails: payload.userWalletData ?? null,
       };
     case LOAD_ACCOUNT.FAIL:
       return {
@@ -167,7 +167,7 @@ const UserProvider = ({
 
       await updateProfile(user.user, {
         displayName: username,
-        photoURL: parsedResponse.wallet.public_key,
+        photoURL: parsedResponse.public_key,
       });
 
       sessionStorage.setItem("user", JSON.stringify(user.user));
@@ -177,7 +177,7 @@ const UserProvider = ({
         payload: {
           user: user.user,
           errorMessage: { error: "", errorMessage: "" },
-          userBlockchainData: parsedResponse,
+          userWalletData: parsedResponse,
         },
       });
 
@@ -218,7 +218,7 @@ const UserProvider = ({
         payload: {
           user: user.user,
           errorMessage: { error: "", errorMessage: "" },
-          userBlockchainData: parsedResponse,
+          userWalletData: parsedResponse,
         },
       });
 
@@ -273,7 +273,7 @@ const UserProvider = ({
         payload: {
           user,
           errorMessage: { error: "", errorMessage: "" },
-          userBlockchainData: parsedResponse,
+          userWalletData: parsedResponse,
         },
       });
     } catch (error) {

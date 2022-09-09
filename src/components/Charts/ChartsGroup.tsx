@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import Chart from "../Chart/Chart";
 
 import { chartLabels } from "../../assets/mock/mockData";
 
 import "./chartsgroup.css";
+import UserContext from "../../context/UserContext/UserContext";
 
 const ChartsGroup = () => {
+  const userContext = useContext(UserContext);
+
   return (
     <div className="charts-group">
       <header className="charts-group-header">
         <div>
-          <div className="charts-group-username">Tauqeer Khan</div>
+          <div className="charts-group-username">
+            {userContext.state.user?.displayName}
+          </div>
           <div className="charts-group-heading-text">Statistics</div>
         </div>
       </header>

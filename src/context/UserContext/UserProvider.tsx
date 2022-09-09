@@ -17,10 +17,11 @@ import UserContext, {
 } from "./UserContext";
 import {
   CREATE_ACCOUNT,
-  LOAD_ACCOUNT,
   LOGIN_ACCOUNT,
-  LOGIN_ERROR,
+  LOAD_ACCOUNT,
+  UPDATE_ACCOUNT,
   LOGOUT_ACCOUNT,
+  LOGIN_ERROR,
 } from "./constants";
 import { useNavigate } from "react-router-dom";
 import { NodeResponse } from "../../utilities/blockchain.types";
@@ -100,6 +101,25 @@ const userContextReducer = (
         isLoading: false,
         user: null,
         message: "Loading user Fail.",
+        isError: true,
+      };
+    case UPDATE_ACCOUNT.START:
+      return {
+        ...state,
+        isLoading: true,
+        message: "updating user details.",
+      };
+    case UPDATE_ACCOUNT.SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        message: "User details updated successfully.",
+      };
+    case UPDATE_ACCOUNT.FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        message: "User details update Unsuccessful.",
         isError: true,
       };
     case LOGIN_ERROR.CLOSE_MESSAGE_BOX:
@@ -267,6 +287,34 @@ const UserProvider = ({
     }
   };
 
+  const updateUser = async (
+    email: string,
+    password: string,
+    userName: string
+  ) => {
+    try {
+      dispatch({
+        type: UPDATE_ACCOUNT.START,
+        payload: { user: null, errorMessage: { error: "", errorMessage: "" } },
+      });
+
+      await updateProfile(currentState.user as User, {
+        displayName: userName,
+        photoURL: currentState.user?.photoURL,
+      });
+
+      dispatch({
+        type: UPDATE_ACCOUNT.SUCCESS,
+        payload: { user: null, errorMessage: { error: "", errorMessage: "" } },
+      });
+    } catch (error: any) {
+      dispatch({
+        type: UPDATE_ACCOUNT.FAIL,
+        payload: { user: null, errorMessage: { error: "", errorMessage: "" } },
+      });
+    }
+  };
+
   const logout = () => {
     try {
       dispatch({
@@ -305,6 +353,7 @@ const UserProvider = ({
     createAccount,
     login,
     loadUser,
+    updateUser,
     logout,
     closeMessageBox,
   };

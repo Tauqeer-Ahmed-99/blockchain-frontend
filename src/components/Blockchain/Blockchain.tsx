@@ -19,9 +19,9 @@ const Blockchain = () => {
         </div>
       </header>
       <main className="blockchain-container">
-        {userContext.state.userBlockchainDetails?.blockchain.map((block) => (
+        {/* {userContext.state.userBlockchainDetails?.blockchain.map((block) => (
           <Block key={block.index} {...block} />
-        ))}
+        ))} */}
       </main>
     </div>
   );

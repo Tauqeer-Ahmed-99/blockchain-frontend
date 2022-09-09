@@ -23,9 +23,8 @@ export type Wallet = {
 };
 
 export type NodeResponse = {
-  all_available_peer_nodes: string[];
-  blockchain: Blockchain;
-  message: string;
-  open_transactions: Transaction[] | [];
-  wallet: Wallet;
+  balance: number;
+  public_key: string;
+  private_key: string;
+  wallet_set_up: boolean;
 };

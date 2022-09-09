@@ -29,13 +29,13 @@ const PeerNodes = () => {
       </div>
       <main className="peer-nodes-container">
         <h3 className="node-heading">Available Peer Nodes</h3>
-        {userContext.state.userBlockchainDetails?.all_available_peer_nodes
+        {/* {userContext.state.userBlockchainDetails?.all_available_peer_nodes
           .length === 0 && <h4> No nodes available.</h4>}
         {userContext.state.userBlockchainDetails?.all_available_peer_nodes.map(
           (node, i) => (
             <Node key={node + i} node={node} />
           )
-        )}
+        )} */}
       </main>
     </div>
   );

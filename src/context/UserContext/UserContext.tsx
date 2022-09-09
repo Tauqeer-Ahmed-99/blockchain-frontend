@@ -14,7 +14,7 @@ export type UserContextStateType = {
   loadingMessage: string;
   message: string;
   errorMessage: ErrorMessage;
-  userBlockchainDetails: NodeResponse | null;
+  userWalletDetails: NodeResponse | null;
 };
 
 export const initialState: UserContextStateType = {
@@ -24,7 +24,7 @@ export const initialState: UserContextStateType = {
   loadingMessage: "",
   message: "",
   errorMessage: { error: "", errorMessage: "" },
-  userBlockchainDetails: null,
+  userWalletDetails: null,
 };
 
 type UserContextType = {

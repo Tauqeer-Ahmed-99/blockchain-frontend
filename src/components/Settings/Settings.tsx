@@ -6,9 +6,11 @@ import MoonIcon from "../../assets/icons/moon.svg";
 
 import "./settings.css";
 import ThemeContext from "../../context/ThemeContext/ThemeContext";
+import UserContext from "../../context/UserContext/UserContext";
 
 const Settings = () => {
   const themeContext = useContext(ThemeContext);
+  const userContext = useContext(UserContext);
 
   const toggleTheme = () => {
     themeContext.toggleTheme();
@@ -18,7 +20,9 @@ const Settings = () => {
     <div className="settings">
       <header className="settings-header">
         <div>
-          <div className="settings-username">Tauqeer Khan</div>
+          <div className="settings-username">
+            {userContext.state.user?.displayName}
+          </div>
           <div className="settings-heading-text">Settings</div>
         </div>
       </header>

@@ -30,7 +30,9 @@ const Profile = () => {
       <header className="profile-header">
         <div>
           <div className="profile-heading-text">My Profile</div>
-          <div className="profile-user-name">Tauqeer Khan</div>
+          <div className="profile-user-name">
+            {userContext.state.user?.displayName}
+          </div>
         </div>
         <div>
           <button

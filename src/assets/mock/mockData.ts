@@ -49,7 +49,7 @@ export const carouselItems = [
   },
 ];
 
-export const mockRecentTxns = [
+export const mockOpenTxns = [
   { id: 1, recepient: "Tauqeer", day: "Today", amount: "12.00" },
   { id: 2, recepient: "Tanvir", day: "Yesterday", amount: "54.55" },
   { id: 3, recepient: "Saad", day: "Yesterday", amount: "43.12" },

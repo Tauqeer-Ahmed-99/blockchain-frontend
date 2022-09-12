@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 
 import { auth } from "../../firebase";
 
@@ -23,7 +23,7 @@ import {
   LOGOUT_ACCOUNT,
   LOGIN_ERROR,
 } from "./constants";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NodeResponse } from "../../utilities/blockchain.types";
 
 type Payload = {
@@ -93,7 +93,6 @@ const userContextReducer = (
         isLoading: false,
         user: payload.user,
         message: "Loading user successful.",
-        userWalletDetails: payload.userWalletData ?? null,
       };
     case LOAD_ACCOUNT.FAIL:
       return {
@@ -260,20 +259,11 @@ const UserProvider = ({
         payload: { user: null, errorMessage: { error: "", errorMessage: "" } },
       });
 
-      const loadNodeURL =
-        process.env.REACT_APP_DEV_ADDRESS + `/load-node/${user.uid}`;
-
-      const blockchainLoadNodeResponse = await fetch(loadNodeURL);
-
-      const parsedResponse: NodeResponse =
-        await blockchainLoadNodeResponse.json();
-
       dispatch({
         type: LOAD_ACCOUNT.SUCCESS,
         payload: {
           user,
           errorMessage: { error: "", errorMessage: "" },
-          userWalletData: parsedResponse,
         },
       });
     } catch (error) {
@@ -347,6 +337,19 @@ const UserProvider = ({
       payload: { user: null, errorMessage: { error: "", errorMessage: "" } },
     });
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const user = sessionStorage.getItem("user");
+    if (user) {
+      const parsedUser = JSON.parse(user);
+      loadUser(parsedUser as User);
+
+      if (location.pathname === "/login") navigate("/dashboard");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const themeContext = {
     state: currentState,

@@ -17,15 +17,6 @@ import "./App.css";
 const App = () => {
   const themeContext = useContext(ThemeContext);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const accessToken = sessionStorage.getItem("accessToken");
-    if (!accessToken) {
-      navigate("/login");
-    }
-  }, []);
-
   return (
     <div data-theme={themeContext.theme}>
       <Routes>

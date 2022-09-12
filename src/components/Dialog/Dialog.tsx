@@ -6,9 +6,17 @@ type DialogPropsType = {
   open: boolean;
   onClose?: () => void;
   children?: JSX.Element | JSX.Element[];
+  width?: string;
+  height?: string;
 };
 
-const Dialog = ({ open, onClose, children }: DialogPropsType) => {
+const Dialog = ({
+  open,
+  onClose,
+  children,
+  width,
+  height,
+}: DialogPropsType) => {
   const handleBackdropClick = () => {
     onClose?.();
   };
@@ -18,7 +26,12 @@ const Dialog = ({ open, onClose, children }: DialogPropsType) => {
         className={open ? "backdrop" : "hidden"}
         onClick={handleBackdropClick}
       ></div>
-      <div className={open ? "dialog-box" : "hidden"}>{children}</div>
+      <div
+        style={{ width: width ?? "auto", height: height ?? "auto" }}
+        className={open ? "dialog-box" : "hidden"}
+      >
+        {children}
+      </div>
     </>
   );
 };

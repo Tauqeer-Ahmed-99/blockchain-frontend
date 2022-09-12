@@ -179,6 +179,21 @@
   filter: var(--white-svg);
 }
 
+.user-info.card {
+  margin: auto;
+
+  width: calc(95% - 2rem);
+  height: 12rem;
+
+  color: var(--white);
+}
+
+.user-info.card p {
+  word-wrap: break-word;
+
+  /* overflow: scroll; */
+}
+
 .actions {
   margin: auto;
   padding: 1rem;
@@ -248,29 +263,29 @@
   background: var(--dark-button-hover);
 }
 
-.recent-transactions {
+.open-transactions {
   width: 95%;
 
   margin: auto;
   padding: 1rem;
 }
-.recent-transactions .txns {
+.open-transactions .txns {
   width: 95%;
-  height: calc(100vh - 36rem);
+  height: calc(100vh - 48rem);
 
   overflow: scroll;
 }
 
-.recent-transactions .txns::-webkit-scrollbar {
+.open-transactions .txns::-webkit-scrollbar {
   display: none; /* Hide scrollbar for Chrome, Safari and Opera */
 }
 
-.recent-transactions .txns {
+.open-transactions .txns {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 
-.recent-transactions .txns .show-more {
+.open-transactions .txns .show-more {
   color: var(--card);
 
   cursor: pointer;
@@ -281,6 +296,57 @@
   text-align: end;
 }
 
-.recent-transactions .txns .show-more:hover {
+.open-transactions .txns .show-more:hover {
   text-decoration: underline;
+}
+
+.open-transactions .txns.not-on-wallet-page {
+  height: calc(100vh - 36rem);
+}
+
+.transfer-form,
+.transfer-form > div {
+  width: 100%;
+}
+
+.transfer-form > div > input {
+  margin-top: 1rem;
+  padding: 1rem;
+  padding-left: 4rem;
+
+  height: 3rem;
+  width: 100%;
+
+  border: none;
+  border-radius: 1rem;
+
+  display: -webkit-inline-flex;
+
+  background: url("../../assets/icons/key.svg") no-repeat scroll 1rem;
+  background-size: 1.5rem;
+  background-color: var(--white);
+
+  box-shadow: 0 2px 15px -8px var(--shadow);
+
+  cursor: text;
+}
+
+.transfer-form div:nth-child(2) input {
+  background: url("../../assets/icons/amount.svg") no-repeat scroll 1rem;
+  background-size: 1.5rem;
+  background-color: var(--white);
+}
+
+.transfer-form > div > input:focus {
+  outline: none !important;
+  border: 1px solid var(--input-focus-border);
+}
+
+.error-msg-transfer {
+  color: var(--danger);
+  font-size: small;
+  font-weight: 500;
+
+  margin-left: 1rem;
+  margin-bottom: -1rem;
 }

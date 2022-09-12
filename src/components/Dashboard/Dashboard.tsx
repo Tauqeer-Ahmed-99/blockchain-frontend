@@ -9,8 +9,6 @@ import UserContext from "../../context/UserContext/UserContext";
 const Dashboard = () => {
   const userContext = useContext(UserContext);
 
-  console.log(userContext.state);
-
   return (
     <div className="dashboard">
       <header className="dashboard-header">

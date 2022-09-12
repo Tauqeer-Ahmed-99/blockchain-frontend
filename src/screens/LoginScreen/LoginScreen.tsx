@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useRef, useState } from "react";
 
 import CryptoLogo from "../../assets/icons/cryptowall-logo.svg";
 import CircularLoader from "../../components/CircularLoader/CircularLoader";
 import Dialog from "../../components/Dialog/Dialog";
 import UserContext from "../../context/UserContext/UserContext";
 import CloseIcon from "../../assets/icons/close.svg";
-import { User } from "firebase/auth";
 
 import "./loginscreen.css";
 import useForm from "../../custom_hooks/useForm";
@@ -33,8 +31,6 @@ const LoginScreen = () => {
   ] = useForm(initialValues);
 
   const userContext = useContext(UserContext);
-
-  const navigate = useNavigate();
 
   const birthDateRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
@@ -67,16 +63,6 @@ const LoginScreen = () => {
   const closeMessageBox = () => {
     userContext.closeMessageBox();
   };
-
-  useEffect(() => {
-    const user = sessionStorage.getItem("user");
-    if (user) {
-      const parsedUser = JSON.parse(user);
-      userContext.loadUser(parsedUser as User);
-
-      navigate("/dashboard");
-    }
-  }, [navigate, userContext]);
 
   return (
     <div className="login-signup">

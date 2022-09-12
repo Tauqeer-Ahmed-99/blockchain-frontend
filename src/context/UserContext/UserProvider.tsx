@@ -155,7 +155,7 @@ const UserProvider = ({
       const user = await createUserWithEmailAndPassword(auth, email, password);
 
       const createNodeURL =
-        process.env.REACT_APP_DEV_ADDRESS + `/create-node/${user.user.uid}`;
+        process.env.REACT_APP_PROD_ADDRESS + `/create-node/${user.user.uid}`;
 
       const blockchainCreateNodeResponse = await fetch(createNodeURL, {
         method: "POST",
@@ -203,7 +203,7 @@ const UserProvider = ({
       const user = await signInWithEmailAndPassword(auth, email, password);
 
       const loadNodeURL =
-        process.env.REACT_APP_DEV_ADDRESS + `/load-node/${user.user.uid}`;
+        process.env.REACT_APP_PROD_ADDRESS + `/load-node/${user.user.uid}`;
 
       const blockchainLoadNodeResponse = await fetch(loadNodeURL);
 

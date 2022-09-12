@@ -55,7 +55,7 @@ const useForm = (
           formValues.userPassword !== formValues.confirmUserPassword ||
           !formValues.confirmUserPassword,
         userBirthDate:
-          new Date(formValues.userBirthDate).getFullYear() <=
+          new Date(formValues.userBirthDate).getFullYear() >=
             new Date().getFullYear() - 18 || !formValues.userBirthDate,
       };
 

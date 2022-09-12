@@ -181,7 +181,7 @@ const BlockchainProvider = ({
       dispatch({ type: FETCH_BLOCKCHAIN.START });
 
       const fetchBlockchainURL =
-        process.env.REACT_APP_DEV_ADDRESS + "/blockchain/" + uid;
+        process.env.REACT_APP_PROD_ADDRESS + "/blockchain/" + uid;
       const blockchainResponse = await fetch(fetchBlockchainURL);
       const parsedBlockchainResponse = await blockchainResponse.json();
 
@@ -201,7 +201,7 @@ const BlockchainProvider = ({
   const addNode = async (uid: string, node: string) => {
     try {
       dispatch({ type: ADD_NODE.START });
-      const addNodeURL = process.env.REACT_APP_DEV_ADDRESS + "/node";
+      const addNodeURL = process.env.REACT_APP_PROD_ADDRESS + "/node";
 
       const addNodeResponse = await fetch(addNodeURL, {
         method: "POST",
@@ -238,7 +238,7 @@ const BlockchainProvider = ({
     try {
       dispatch({ type: DELETE_NODE.START });
 
-      const deleteNodeURL = process.env.REACT_APP_DEV_ADDRESS + "/node";
+      const deleteNodeURL = process.env.REACT_APP_PROD_ADDRESS + "/node";
       const deleteNodeResponse = await fetch(deleteNodeURL, {
         method: "DELETE",
         mode: "cors",
@@ -271,7 +271,7 @@ const BlockchainProvider = ({
     try {
       dispatch({ type: MININIG_BLOCK.START });
 
-      const mineBlockURL = process.env.REACT_APP_DEV_ADDRESS + "/mine/" + uid;
+      const mineBlockURL = process.env.REACT_APP_PROD_ADDRESS + "/mine/" + uid;
       const mineBlockResponse = await fetch(mineBlockURL, { method: "POST" });
       const parsedMineBlockResponse = await mineBlockResponse.json();
 
@@ -302,7 +302,7 @@ const BlockchainProvider = ({
     try {
       dispatch({ type: TRANSFER_FUNDS.START });
 
-      const makeTxnURL = process.env.REACT_APP_DEV_ADDRESS + "/transaction";
+      const makeTxnURL = process.env.REACT_APP_PROD_ADDRESS + "/transaction";
       const makeTxnResponse = await fetch(makeTxnURL, {
         method: "POST",
         mode: "cors",

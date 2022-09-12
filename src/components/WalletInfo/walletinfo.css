@@ -183,13 +183,15 @@
   margin: auto;
 
   width: calc(95% - 2rem);
-  height: 12rem;
+  height: 7rem;
 
   color: var(--white);
 }
 
 .user-info.card p {
   word-wrap: break-word;
+
+  font-size: x-small;
 
   /* overflow: scroll; */
 }
@@ -271,7 +273,7 @@
 }
 .open-transactions .txns {
   width: 95%;
-  height: calc(100vh - 48rem);
+  height: calc(100vh - 43rem);
 
   overflow: scroll;
 }

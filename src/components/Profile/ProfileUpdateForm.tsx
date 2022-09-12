@@ -29,7 +29,7 @@ const ProfileUpdateForm = ({
     confirmUserEmail: userDetails.userEmail ?? "",
     userPassword: "",
     confirmUserPassword: "",
-    userBirthDate: userDetails.userBirthDate ?? "",
+    userBirthDate: "",
   };
 
   const [formValues, fieldErrors, handleInputChange, handleInputBlur] =

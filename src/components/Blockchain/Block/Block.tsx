@@ -57,11 +57,8 @@ const Block = ({
             isTransactionsDetailVisible ? "visible" : "hidden"
           }`}
         >
-          {transactions.map((txn) => (
-            <Transaction
-              key={txn.signature + txn.sender + txn.recipient}
-              {...txn}
-            />
+          {transactions.map((txn, i) => (
+            <Transaction key={txn.recipient + i} {...txn} />
           ))}
         </div>
       </div>

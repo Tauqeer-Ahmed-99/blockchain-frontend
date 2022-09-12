@@ -7,6 +7,7 @@ import ThemeProvider from "./context/ThemeContext/ThemeProvider";
 import UserProvider from "./context/UserContext/UserProvider";
 
 import { BrowserRouter } from "react-router-dom";
+import BlockchainProvider from "./context/BlockchainContext/BlockchainProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,7 +17,9 @@ root.render(
     <BrowserRouter>
       <ThemeProvider>
         <UserProvider>
-          <App />
+          <BlockchainProvider>
+            <App />
+          </BlockchainProvider>
         </UserProvider>
       </ThemeProvider>
     </BrowserRouter>

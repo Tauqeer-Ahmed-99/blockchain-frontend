@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import BlockchainContext from "../../context/BlockchainContext/BlockchainContext";
 // import { blockchainResponse } from "../../assets/mock/mockData";
 import UserContext from "../../context/UserContext/UserContext";
 import Block from "./Block/Block";
@@ -7,6 +8,7 @@ import "./blockchain.css";
 
 const Blockchain = () => {
   const userContext = useContext(UserContext);
+  const blockchainContext = useContext(BlockchainContext);
 
   return (
     <div className="blockchain-component">
@@ -19,9 +21,11 @@ const Blockchain = () => {
         </div>
       </header>
       <main className="blockchain-container">
-        {/* {userContext.state.userBlockchainDetails?.blockchain.map((block) => (
-          <Block key={block.index} {...block} />
-        ))} */}
+        {blockchainContext?.userBlockchainDetails?.userBlockchainDetails?.blockchain?.map(
+          (block) => (
+            <Block key={block.index} {...block} />
+          )
+        )}
       </main>
     </div>
   );

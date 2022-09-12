@@ -28,3 +28,19 @@ export type NodeResponse = {
   private_key: string;
   wallet_set_up: boolean;
 };
+
+export type BlockchainDetailsType = {
+  all_available_peer_nodes: string[];
+  blockchain: Blockchain;
+  message: string;
+  open_transactions: Transaction[] | [];
+  wallet: Wallet;
+};
+
+export type Payload = {
+  all_available_peer_nodes?: string[];
+  blockchain?: Blockchain;
+  message?: string;
+  open_transactions?: Transaction[] | [];
+  wallet?: Wallet;
+};

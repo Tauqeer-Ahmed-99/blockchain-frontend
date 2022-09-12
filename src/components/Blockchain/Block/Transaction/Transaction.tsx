@@ -13,7 +13,7 @@ const Transaction = ({
   return (
     <div className="transaction">
       <p>Sender: {sender}</p>
-      <p>recipient: {recipient}</p>
+      <p>Recipient: {recipient}</p>
       <p>Amount: {amount}</p>
       <p>Signature: {signature}</p>
     </div>

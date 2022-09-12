@@ -1,4 +1,4 @@
-.recent-transaction-tile {
+.open-transaction-tile {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,18 +6,18 @@
   margin-top: 0.1rem;
 }
 
-.recent-transaction-tile h5 {
+.open-transaction-tile h5 {
   color: #0e1446;
   font-size: smaller;
   font-weight: 500;
 }
 
-.recent-transaction-tile div div {
+.open-transaction-tile div div {
   color: #9195a1;
   font-size: x-small;
   font-weight: 300;
 }
 
-.recent-transaction-tile p {
+.open-transaction-tile p {
   color: #67cef4;
 }
